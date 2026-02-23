@@ -12,6 +12,7 @@ function routeRender(page, data) {
     if (page === 'travel') renderTravel(data);
     if (page === 'committees') renderCommittees(data);
     if (page === 'contact') renderContact(data);
+    if (page === 'committee-details') renderCommitteeDetails(data); 
 }
 
 function renderHome(data) {
@@ -51,65 +52,6 @@ function renderTravel(data) {
     app.innerHTML = html;
 }
 
-function renderCommittees(data) {
-    let html = `<section class="text-center">
-                    <h2 style="font-size: 2.5rem; margin-bottom: 3rem;">${sanitize(data.header)}</h2>
-                </section>`;
-
-    const buildCommitteeGrid = (committeesList, title) => {
-        if (!committeesList || committeesList.length === 0) return '';
-        
-        let sectionHtml = `
-            <section style="margin-bottom: 4rem;">
-                <h3 style="color: var(--accent-red); font-size: 1.8rem; margin-bottom: 2rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem; display: inline-block;">
-                    ${sanitize(title)} Committees
-                </h3>
-                <div class="grid">`;
-                
-        committeesList.forEach((c, index) => {
-            const imageHtml = c.image ? `<img src="${sanitize(c.image)}" alt="${sanitize(c.name)}" class="committee-img">` : '';
-            const descId = `desc-${title.toLowerCase()}-${index}`;
-            
-            sectionHtml += `
-                <div class="card">
-                    ${imageHtml}
-                    <h3 style="font-size: 1.3rem; min-height: 3.5rem;">${sanitize(c.name)}</h3>
-                    
-                    <div style="flex-grow: 1; display: flex; flex-direction: column;">
-                        <p id="${descId}" class="description-text" style="margin-bottom: 1rem;">${sanitize(c.shortDescription)}</p>
-                    </div>
-                    
-                    <div class="card-footer" style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle);">
-                        <button class="read-more-btn" onclick="toggleReadMore('${descId}', this)">Read More</button>
-                        <button class="btn" style="padding: 0.6rem 1.5rem; width: auto; margin: 0;">View Details</button>
-                    </div>
-                </div>`;
-        });
-        
-        sectionHtml += `</div></section>`;
-        return sectionHtml;
-    };
-
-    html += buildCommitteeGrid(data.offline, "Offline");
-    html += buildCommitteeGrid(data.online, "Online");
-
-    app.innerHTML = html;
-}
-
-// Global function to handle the Read More toggle
-window.toggleReadMore = function(descId, buttonElement) {
-    const descElement = document.getElementById(descId);
-    
-    // Toggle the 'expanded' class
-    if (descElement.classList.contains('expanded')) {
-        descElement.classList.remove('expanded');
-        buttonElement.textContent = 'Read More';
-    } else {
-        descElement.classList.add('expanded');
-        buttonElement.textContent = 'Read Less';
-    }
-};
-
 function renderContact(data) {
     let html = `<section><h2>Contact Us</h2><div class="grid"><div class="card"><h3>Key Contacts</h3><ul>`;
     data.phones.forEach(p => html += `<li><b>${sanitize(p.role)}:</b> ${sanitize(p.number)}</li>`);
@@ -148,3 +90,137 @@ function renderRegistration() {
     `;
     if(window.initRegForm) window.initRegForm();
 }
+
+function renderCommittees(data) {
+    let html = `<section class="text-center">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 3rem;">${sanitize(data.header)}</h2>
+                </section>`;
+
+    const buildCommitteeGrid = (committeesList, title) => {
+        if (!committeesList || committeesList.length === 0) return '';
+        
+        let sectionHtml = `
+            <section style="margin-bottom: 4rem;">
+                <h3 style="color: var(--accent-red); font-size: 1.8rem; margin-bottom: 2rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem; display: inline-block;">
+                    ${sanitize(title)} Committees
+                </h3>
+                <div class="grid">`;
+                
+        committeesList.forEach((c, index) => {
+            const imageHtml = c.image ? `<img src="${sanitize(c.image)}" alt="${sanitize(c.name)}" class="committee-img">` : '';
+            const descId = `desc-${title.toLowerCase()}-${index}`;
+            
+            sectionHtml += `
+                <div class="card">
+                    ${imageHtml}
+                    <h3 style="font-size: 1.3rem; min-height: 3.5rem;">${sanitize(c.name)}</h3>
+                    
+                    <div style="flex-grow: 1; display: flex; flex-direction: column;">
+                        <p id="${descId}" class="description-text" style="margin-bottom: 1rem;">
+                            <strong style="color: var(--text-primary);">Agenda:</strong> ${sanitize(c.agenda)}
+                        </p>
+                    </div>
+                    
+                    <div class="card-footer" style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle);">
+                        <button class="read-more-btn" onclick="toggleReadMore('${descId}', this)">Read More</button>
+                        <a href="committee-details.html?id=${sanitize(c.id)}" class="btn" style="padding: 0.6rem 1.5rem; width: auto; margin: 0; text-align: center;">View Details</a>
+                    </div>
+                </div>`;
+        });
+        
+        sectionHtml += `</div></section>`;
+        return sectionHtml;
+    };
+
+    html += buildCommitteeGrid(data.offline, "Offline");
+    html += buildCommitteeGrid(data.online, "Online");
+
+    app.innerHTML = html;
+}
+
+function renderCommitteeDetails(data) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const committeeId = urlParams.get('id');
+
+    let committee = null;
+    let mode = '';
+    
+    if (data.offline) {
+        committee = data.offline.find(c => c.id === committeeId);
+        if (committee) mode = 'Offline';
+    }
+    if (!committee && data.online) {
+        committee = data.online.find(c => c.id === committeeId);
+        if (committee) mode = 'Online';
+    }
+
+    if (!committee) {
+        app.innerHTML = `<section class="text-center" style="padding: 5rem 0;">
+                            <h2>Committee not found</h2>
+                            <a href="committees.html" class="btn mt-4">Back to Committees</a>
+                         </section>`;
+        return;
+    }
+
+    app.innerHTML = `
+        <section style="margin-bottom: 4rem;">
+            <a href="committees.html" style="color: var(--accent-red); display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">
+                &larr; Back to Committees
+            </a>
+            
+            <div style="display: flex; flex-wrap: wrap; gap: 4rem; align-items: flex-start;">
+                
+                <div style="flex: 1; min-width: 300px;">
+                    <img src="${sanitize(committee.image)}" alt="${sanitize(committee.name)}" style="width: 100%; border-radius: 8px; border: 1px solid var(--border-subtle); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                </div>
+                
+                <div style="flex: 1.5; min-width: 300px;">
+                    <span style="background: var(--accent-red); color: white; padding: 0.4rem 1rem; border-radius: 4px; font-size: 0.75rem; text-transform: uppercase; font-weight: 800; letter-spacing: 1.5px;">
+                        ${mode} Committee
+                    </span>
+                    
+                    <h1 style="font-size: 3rem; margin: 1.5rem 0 1rem 0; line-height: 1.1;">${sanitize(committee.name)}</h1>
+                    
+                    <div style="background: var(--bg-card); padding: 2.5rem; border-radius: 8px; border: 1px solid var(--border-subtle); margin-top: 2.5rem;">
+                        <h3 style="color: var(--accent-red); margin-bottom: 1rem; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px;">Agenda</h3>
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-primary);">
+                            ${sanitize(committee.agenda)}
+                        </p>
+
+                        <h3 style="color: var(--accent-red); margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px;">Description</h3>
+                        <p style="font-size: 1rem; line-height: 1.6; color: var(--text-muted);">
+                            ${sanitize(committee.description || 'To be added.')}
+                        </p>
+                    </div>
+                    
+                    <div style="margin-top: 2.5rem; display: flex; gap: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border-subtle);">
+                        <div>
+                            <h4 style="color: var(--text-muted); text-transform: uppercase; font-size: 0.85rem; margin-bottom: 0.5rem; letter-spacing: 1px;">Chairpersons</h4>
+                            <p style="font-weight: 600; font-size: 1.15rem; color: var(--text-primary);">
+                                ${committee.chairpersons ? committee.chairpersons.join(', ') : 'To be added'}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 3rem;">
+                        <a href="registration.html" class="btn">Register Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    `;
+}
+
+// Global function to handle the Read More toggle
+window.toggleReadMore = function(descId, buttonElement) {
+    const descElement = document.getElementById(descId);
+    
+    // Toggle the 'expanded' class
+    if (descElement.classList.contains('expanded')) {
+        descElement.classList.remove('expanded');
+        buttonElement.textContent = 'Read More';
+    } else {
+        descElement.classList.add('expanded');
+        buttonElement.textContent = 'Read Less';
+    }
+};
