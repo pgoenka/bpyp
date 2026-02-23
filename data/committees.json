@@ -1,0 +1,15 @@
+{
+  "header": "Committees to be announced soon",
+  "list": [
+    {
+      "id": "unsc",
+      "name": "United Nations Security Council",
+      "shortDescription": "Addressing global security threats and maintaining international peace."
+    },
+    {
+      "id": "loksabha",
+      "name": "Lok Sabha",
+      "shortDescription": "The lower house of India's bicameral Parliament."
+    }
+  ]
+}

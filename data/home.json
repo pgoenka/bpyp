@@ -1,0 +1,27 @@
+{
+  "hero": {
+    "eventName": "BITS Pilani Youth Parliament",
+    "tagline": "Debate. Negotiate. Lead.",
+    "dates": "April 12 - 14, 2026",
+    "primaryCta": { "text": "Register", "link": "registration.html" },
+    "secondaryCta": { "text": "Explore Committees", "link": "committees.html" }
+  },
+  "about": {
+    "title": "About BPYP",
+    "paragraphs": [
+      "The BITS Pilani Youth Parliament is a premier simulation designed to foster diplomatic leadership, rigorous policy debate, and an understanding of parliamentary procedures.",
+      "Join us to step into the shoes of global leaders and draft actionable resolutions."
+    ]
+  },
+  "highlights": [
+    { "title": "Debates", "desc": "Engage in rigorous policy debates." },
+    { "title": "Policy Simulation", "desc": "Draft actionable resolutions." },
+    { "title": "Leadership", "desc": "Step into the shoes of global leaders." },
+    { "title": "Networking", "desc": "Connect with peers across the nation." }
+  ],
+  "timeline": [
+    { "event": "Registration Opens", "date": "September 1, 2026" },
+    { "event": "Committee Reveal", "date": "September 15, 2026" },
+    { "event": "Event Dates", "date": "October 24-26, 2026" }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "introduction": {
+    "title": "Getting to Pilani",
+    "details": [
+      "Pilani is located in rural Rajasthan.",
+      "Not directly connected by air or train.",
+      "Travel requires combination routes."
+    ]
+  },
+  "routes": [
+    {
+      "title": "From Delhi",
+      "details": "5–6 hour bus journey from ISBT Kashmere Gate or Dhaula Kuan. Alternatively, take a train to Loharu Junction (LHU) followed by a cab."
+    },
+    {
+      "title": "From Jaipur",
+      "details": "4–5 hour bus journey from Sindhi Camp Bus Stand."
+    }
+  ],
+  "airports": [
+    { "name": "Indira Gandhi International Airport (Delhi)", "time": "5-6 hours to campus" },
+    { "name": "Jaipur International Airport", "time": "4-5 hours to campus" }
+  ],
+  "trainSchedules": {
+    "delhiToLoharu": [
+      { "trainName": "BKN SF EXP (12457)", "from": "NDLS", "departure": "23:35", "to": "LHU", "arrival": "02:40" }
+    ],
+    "loharuToDelhi": [
+      { "trainName": "BKN DEE EXP (12458)", "from": "LHU", "departure": "02:50", "to": "DEE", "arrival": "06:05" }
+    ]
+  },
+  "tips": [
+    "Book tickets well in advance.",
+    "Carry essential items (limited local shopping).",
+    "Prepare for summer weather (sunscreen, caps, light clothing)."
+  ]
+}
