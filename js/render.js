@@ -52,13 +52,63 @@ function renderTravel(data) {
 }
 
 function renderCommittees(data) {
-    let html = `<section class="text-center"><h2>${sanitize(data.header)}</h2><div class="grid mt-4">`;
-    data.list.forEach(c => {
-        html += `<div class="card"><h3>${sanitize(c.name)}</h3><p>${sanitize(c.shortDescription)}</p><button class="btn mt-2">View Details</button></div>`;
-    });
-    html += `</div></section>`;
+    let html = `<section class="text-center">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 3rem;">${sanitize(data.header)}</h2>
+                </section>`;
+
+    const buildCommitteeGrid = (committeesList, title) => {
+        if (!committeesList || committeesList.length === 0) return '';
+        
+        let sectionHtml = `
+            <section style="margin-bottom: 4rem;">
+                <h3 style="color: var(--accent-red); font-size: 1.8rem; margin-bottom: 2rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem; display: inline-block;">
+                    ${sanitize(title)} Committees
+                </h3>
+                <div class="grid">`;
+                
+        committeesList.forEach((c, index) => {
+            const imageHtml = c.image ? `<img src="${sanitize(c.image)}" alt="${sanitize(c.name)}" class="committee-img">` : '';
+            const descId = `desc-${title.toLowerCase()}-${index}`;
+            
+            sectionHtml += `
+                <div class="card">
+                    ${imageHtml}
+                    <h3 style="font-size: 1.3rem; min-height: 3.5rem;">${sanitize(c.name)}</h3>
+                    
+                    <div style="flex-grow: 1; display: flex; flex-direction: column;">
+                        <p id="${descId}" class="description-text" style="margin-bottom: 1rem;">${sanitize(c.shortDescription)}</p>
+                    </div>
+                    
+                    <div class="card-footer" style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle);">
+                        <button class="read-more-btn" onclick="toggleReadMore('${descId}', this)">Read More</button>
+                        <button class="btn" style="padding: 0.6rem 1.5rem; width: auto; margin: 0;">View Details</button>
+                    </div>
+                </div>`;
+        });
+        
+        sectionHtml += `</div></section>`;
+        return sectionHtml;
+    };
+
+    html += buildCommitteeGrid(data.offline, "Offline");
+    html += buildCommitteeGrid(data.online, "Online");
+
     app.innerHTML = html;
 }
+
+// Global function to handle the Read More toggle
+window.toggleReadMore = function(descId, buttonElement) {
+    const descElement = document.getElementById(descId);
+    
+    // Toggle the 'expanded' class
+    if (descElement.classList.contains('expanded')) {
+        descElement.classList.remove('expanded');
+        buttonElement.textContent = 'Read More';
+    } else {
+        descElement.classList.add('expanded');
+        buttonElement.textContent = 'Read Less';
+    }
+};
 
 function renderContact(data) {
     let html = `<section><h2>Contact Us</h2><div class="grid"><div class="card"><h3>Key Contacts</h3><ul>`;

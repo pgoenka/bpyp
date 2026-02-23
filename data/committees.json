@@ -1,15 +1,49 @@
 {
-  "header": "Committees to be announced soon",
-  "list": [
+  "header": "Committees",
+  "offline": [
     {
-      "id": "unsc",
-      "name": "United Nations Security Council",
-      "shortDescription": "Addressing global security threats and maintaining international peace."
+      "id": "ls78",
+      "name": "Lok Sabha",
+      "shortDescription": "Legislative, Judicial, and Political Reckoning of the Internal Emergency (1975–77): Accountability, Constitutional Restoration, and the Stability of Post-Emergency Governance.",
+      "image": "assets/images/committees/ls78.jpg"
     },
     {
-      "id": "loksabha",
-      "name": "Lok Sabha",
-      "shortDescription": "The lower house of India's bicameral Parliament."
+      "id": "aippm",
+      "name": "All India Political Parties Meet",
+      "shortDescription": "Deliberation on the Electoral Bonds Scheme and the Use of Central Investigative Agencies in Political Competition: Transparency, Coercion, and Democratic Fairness.",
+      "image": "assets/images/committees/aippm.jpg"
+    },
+    {
+      "id": "cbfc",
+      "name": "Central Board of Film Certification",
+      "shortDescription": "Regulation of Politically Polarising Cinema in India: Certification Disputes and State Responses to The Kerala Story, The Kashmir Files, Article 370, and 72 Hoorain.",
+      "image": "assets/images/committees/cbfc.jpg"
+    },
+    {
+      "id": "unga",
+      "name": "United Nations General Assembly",
+      "shortDescription": "Failure of Multilateral Institutions in Preventing Mass Civilian Casualties in Urban Warfare; Deliberation on the Use of Economic Sanctions as Instruments of Warfare, with Reference to Sanctions on Russia, Iran, and Venezuela and Their Humanitarian Impact.",
+      "image": "assets/images/committees/unga.jpg"
+    }
+  ],
+  "online": [
+    {
+      "id": "uncsw",
+      "name": "United Nations Commission on the Status of Women",
+      "shortDescription": "Deliberation on Sexual Violence as a Weapon of War, with Reference to Investigations in Ukraine and Sudan.",
+      "image": "assets/images/committees/uncsw.jpg"
+    },
+    {
+      "id": "ipbt",
+      "name": "Indo-Pakistan Bilateral Talks",
+      "shortDescription": "Lock Date: 27 February 2019 — Following cross-border air operations, aerial engagements, and the capture of an Indian Air Force pilot.",
+      "image": "assets/images/committees/ipbt.jpg"
+    },
+    {
+      "id": "hunsc",
+      "name": "Historic United Nations Security Council",
+      "shortDescription": "1971 Bangladesh War — Operation Searchlight, Refugee Crisis, Mukti Bahini Insurgency, Indo-Soviet Treaty, Escalation, Pre-emptive Airstrikes, Operation Poseidon, and the Surrender in Dhaka.",
+      "image": "assets/images/committees/hunsc.jpg"
     }
   ]
 }

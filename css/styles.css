@@ -177,3 +177,70 @@ main { min-height: 80vh; max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; 
     .hero h1 { font-size: 1.8rem; }
     .btn { font-size: 0.85rem; }
 }
+
+.committee-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover; /* Ensures the image fills the space without stretching */
+    border-radius: 4px;
+    border: 1px solid var(--border-subtle);
+    margin-bottom: 1.5rem; /* Space between the image and the heading */
+}
+
+.description-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.description-text.expanded {
+    -webkit-line-clamp: unset; /* Removes the 3-line limit */
+}
+
+.read-more-btn {
+    background: none;
+    border: none;
+    color: var(--accent-red);
+    cursor: pointer;
+    padding: 0.5rem 0 1.5rem 0;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.read-more-btn:hover {
+    color: var(--text-primary);
+}
+
+/* Update the Card class to use Flexbox */
+.card { 
+    background: var(--bg-card); 
+    padding: 2rem; /* Slightly tighter padding for a sleeker look */
+    border: 1px solid var(--border-subtle); 
+    border-radius: 8px; 
+    transition: border-color 0.3s ease, transform 0.3s ease; 
+    position: relative; 
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Forces all cards in a row to be the exact same height */
+}
+
+/* Update the Read More Button to fit in the new horizontal footer */
+.read-more-btn {
+    background: none;
+    border: none;
+    color: var(--accent-red);
+    cursor: pointer;
+    padding: 0; /* Removed old vertical padding */
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
