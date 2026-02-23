@@ -109,22 +109,71 @@ main { min-height: 80vh; max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; 
 .footer-col a:hover { color: var(--accent-red); }
 .footer-bottom { text-align: center; padding-top: 2rem; color: var(--text-muted); font-size: 0.85rem; }
 
-/* Mobile Responsiveness */
+/* =========================================
+   Mobile Responsiveness (Max-width: 768px)
+   ========================================= */
 @media (max-width: 768px) {
+    /* 1. Fix Navigation & Hamburger */
+    .nav-container { padding: 1rem; }
+    .logo-img { height: 32px; } /* Slightly smaller logo on mobile */
     .nav-links {
-        display: none; /* Hides the standard links on mobile */
+        display: none;
         flex-direction: column;
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
-        background: var(--bg-surface);
-        padding: 1.5rem;
-        border-bottom: 1px solid var(--accent-red);
+        background: rgba(18, 18, 18, 0.98); /* Darker background for readability */
+        backdrop-filter: blur(15px);
+        padding: 2rem 1rem;
+        border-bottom: 2px solid var(--accent-red);
         text-align: center;
+        gap: 1.5rem;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
-    .nav-links.show { display: flex; } /* Toggled by JS when hamburger is clicked */
-    .hamburger { display: block; } /* Shows the hamburger ONLY on mobile */
-    .btn-outline { margin-left: 0; margin-top: 1rem; display: block; width: 100%; }
-    .btn { display: block; width: 100%; }
+    .nav-links.show { display: flex; }
+    .hamburger { display: block; } /* Shows hamburger on mobile */
+
+    /* 2. Fix Spacing and Padding Constraints */
+    main { padding: 2rem 1rem; }
+    
+    /* 3. Scale Down Hero Section */
+    .hero { 
+        padding: 4rem 1.5rem; 
+        margin-bottom: 2.5rem; 
+        border-radius: 8px;
+    }
+    .hero h1 { font-size: 2.2rem; line-height: 1.2; } /* Prevents text overflow */
+    .hero p { font-size: 1rem; margin-bottom: 2rem; }
+
+    /* 4. Fix Button Stacking */
+    .btn { 
+        display: block; 
+        width: 100%; 
+        margin-bottom: 1rem; 
+        padding: 1rem;
+    }
+    .btn-outline { margin-left: 0; margin-top: 0.5rem; }
+
+    /* 5. Fix Grid & Horizontal Scrolling */
+    .grid { 
+        grid-template-columns: 1fr; /* Forces 1 column on mobile */
+        gap: 1.5rem; 
+    }
+    .card { padding: 1.5rem; } /* Smaller padding inside cards */
+    .card h3 { font-size: 1.25rem; }
+
+    /* 6. Scale Down Splash Screen */
+    .splash-content { font-size: 2.5rem; }
+
+    /* 7. Fix Footer Spacing */
+    .site-footer { padding: 3rem 1.5rem 1.5rem; margin-top: 2rem; }
+    .footer-grid { gap: 2rem; padding-bottom: 2rem; }
+    .footer-col h4 { margin-bottom: 1rem; }
+}
+
+/* Extra fix for very small phones (like iPhone SE) */
+@media (max-width: 380px) {
+    .hero h1 { font-size: 1.8rem; }
+    .btn { font-size: 0.85rem; }
 }
