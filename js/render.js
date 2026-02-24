@@ -79,18 +79,21 @@ function renderHome(data) {
         const homeNavLinks = document.getElementById('home-nav-links');
         
         if (homeHamburger && homeNavLinks && homeClose) {
-            // Open Menu
+            // Open Menu & Lock Scroll
             homeHamburger.addEventListener('click', () => {
                 homeNavLinks.classList.add('show');
+                document.body.style.overflow = 'hidden'; // Locks the background
             });
-            // Close Menu
+            // Close Menu & Unlock Scroll
             homeClose.addEventListener('click', () => {
                 homeNavLinks.classList.remove('show');
+                document.body.style.overflow = ''; // Unlocks the background
             });
-            // Close if a link is clicked
+            // Close if a link is clicked & Unlock Scroll
             homeNavLinks.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     homeNavLinks.classList.remove('show');
+                    document.body.style.overflow = ''; // Unlocks the background
                 });
             });
         }

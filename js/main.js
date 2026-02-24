@@ -22,7 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (hamburger && navLinks) {
         hamburger.addEventListener('click', () => {
             const isOpen = navLinks.classList.toggle('show');
-            hamburger.textContent = isOpen ? '✖' : '☰'; // Transforms the icon
+            hamburger.textContent = isOpen ? '✖' : '☰'; 
+            
+            // LOCK OR UNLOCK SCROLLING
+            document.body.style.overflow = isOpen ? 'hidden' : ''; 
         });
 
         // Close menu if a link is clicked
@@ -30,6 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('show');
                 hamburger.textContent = '☰';
+                
+                // UNLOCK SCROLLING
+                document.body.style.overflow = ''; 
             });
         });
     }
