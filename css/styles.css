@@ -244,3 +244,96 @@ main { min-height: 80vh; max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; 
     letter-spacing: 1px;
     transition: color 0.3s ease;
 }
+
+/* Interactive Home Hero */
+.interactive-hero {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 12px;
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-surface);
+    overflow: hidden;
+    margin-bottom: 4rem;
+    
+    /* Default cursor positions for the spotlight */
+    --cursor-x: 50%;
+    --cursor-y: 50%;
+}
+
+/* The severe red spotlight that follows the cursor */
+.interactive-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle 500px at var(--cursor-x) var(--cursor-y), rgba(255, 30, 30, 0.12), transparent 70%);
+    z-index: 1;
+    pointer-events: none; /* Allows clicking on buttons beneath it */
+    transition: background 0.1s ease-out; /* Smooth tracking */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+}
+
+.interactive-hero h1 {
+    font-size: 4.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -2px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.interactive-hero p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+}
+
+/* Inline Portal Navigation */
+.portal-nav {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.portal-nav a {
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.portal-nav a:hover {
+    color: var(--text-primary);
+}
+
+.portal-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--accent-red);
+    transition: width 0.3s ease;
+}
+
+.portal-nav a:hover::after {
+    width: 100%;
+}
+
+/* Mobile Adjustments for Interactive Hero */
+@media (max-width: 768px) {
+    .interactive-hero h1 { font-size: 2.8rem; }
+    .portal-nav { flex-direction: column; gap: 1.5rem; }
+}
