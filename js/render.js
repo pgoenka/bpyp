@@ -29,11 +29,12 @@ function renderHome(data) {
                 </div>
 
                 <nav class="portal-nav">
-                    <a href="index.html">Home</a>
-                    <a href="registration.html">Registration</a>
-                    <a href="travel.html">Travel</a>
-                    <a href="committees.html">Committees</a>
-                    <a href="contact.html">Contact</a>
+                    <button class="home-hamburger" id="home-menu-toggle" aria-label="Toggle Menu">☰</button>
+                    <div class="home-nav-links" id="home-nav-links">
+                        <a href="travel.html">Travel</a>
+                        <a href="committees.html">Committees</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
                 </nav>
             </div>
         </section>
@@ -57,7 +58,7 @@ function renderHome(data) {
         </section>
     `;
 
-    // Add Interactive Mouse Spotlight Effect
+    // Add Interactive Mouse Spotlight Effect & Mobile Menu Logic
     setTimeout(() => {
         const hero = document.getElementById('home-hero');
         if (hero) {
@@ -67,6 +68,15 @@ function renderHome(data) {
                 const y = e.clientY - rect.top;
                 hero.style.setProperty('--cursor-x', `${x}px`);
                 hero.style.setProperty('--cursor-y', `${y}px`);
+            });
+        }
+
+        // Home Page Mobile Hamburger Logic
+        const homeHamburger = document.getElementById('home-menu-toggle');
+        const homeNavLinks = document.getElementById('home-nav-links');
+        if (homeHamburger && homeNavLinks) {
+            homeHamburger.addEventListener('click', () => {
+                homeNavLinks.classList.toggle('show');
             });
         }
     }, 100);
