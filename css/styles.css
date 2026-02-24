@@ -337,3 +337,81 @@ main { min-height: 80vh; max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; 
     .interactive-hero h1 { font-size: 2.8rem; }
     .portal-nav { flex-direction: column; gap: 1.5rem; }
 }
+
+/* Inline Portal Navigation */
+.portal-nav {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.home-hamburger {
+    display: none; /* Hidden on Desktop */
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 2.5rem;
+    cursor: pointer;
+    margin: 0 auto;
+    transition: color 0.3s ease;
+}
+
+.home-hamburger:hover {
+    color: var(--accent-red);
+}
+
+.home-nav-links {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+}
+
+.home-nav-links a {
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.home-nav-links a:hover {
+    color: var(--text-primary);
+}
+
+.home-nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--accent-red);
+    transition: width 0.3s ease;
+}
+
+.home-nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Mobile Adjustments for Interactive Hero */
+@media (max-width: 768px) {
+    .interactive-hero h1 { font-size: 2.8rem; }
+    
+    /* Home Menu Mobile Swap */
+    .home-hamburger {
+        display: block; /* Show hamburger below buttons */
+    }
+    
+    .home-nav-links {
+        display: none; /* Hide the horizontal links */
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    
+    .home-nav-links.show {
+        display: flex; /* Display them stacked when hamburger is tapped */
+        animation: fadeIn 0.4s ease forwards;
+    }
+}
