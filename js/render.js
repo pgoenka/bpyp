@@ -31,6 +31,8 @@ function renderHome(data) {
                 <nav class="portal-nav">
                     <button class="home-hamburger" id="home-menu-toggle" aria-label="Toggle Menu">☰</button>
                     <div class="home-nav-links" id="home-nav-links">
+                        <a href="index.html">Home</a>
+                        <a href="registration.html">Registration</a>
                         <a href="travel.html">Travel</a>
                         <a href="committees.html">Committees</a>
                         <a href="contact.html">Contact</a>
