@@ -19,7 +19,7 @@ function renderHome(data) {
     app.innerHTML = `
         <section class="interactive-hero home-snap-section" id="home-hero">
             <div class="hero-content">
-                <img src="assets/images/logo.svg" alt="BPYP Logo" style="height: 60px; filter: brightness(0) invert(1); margin-bottom: 2rem;">
+                <img src="assets/images/logo.svg" alt="BPYP Logo" style="height: 200px; filter: brightness(0) invert(1); margin-bottom: -2rem;">
                 <h1>${sanitize(data.hero.eventName)}</h1>
                 <p>${sanitize(data.hero.tagline)} | ${sanitize(data.hero.dates)}</p>
                 
