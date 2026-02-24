@@ -415,3 +415,77 @@ main { min-height: 80vh; max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; 
         animation: fadeIn 0.4s ease forwards;
     }
 }
+
+/* =========================================
+   Home Page Desktop Spacing
+   ========================================= */
+.about-section, .highlights-section {
+    margin-top: 5rem;
+}
+.home-section-title {
+    font-size: 2.5rem; 
+    text-align: center; 
+    margin-bottom: 2rem;
+}
+.about-content {
+    max-width: 800px; 
+    margin: auto; 
+    font-size: 1.15rem; 
+    color: var(--text-secondary);
+}
+.about-content p { margin-bottom: 1.5rem; }
+
+/* =========================================
+   Mobile: Full-Screen Snap Scrolling (Home Only)
+   ========================================= */
+@media (max-width: 768px) {
+    /* 1. Turn the body into a snap-scroller */
+    body[data-page="home"] {
+        height: 100dvh;
+        height: 100vh; /* Fallback */
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
+        scroll-behavior: smooth;
+    }
+    
+    /* Remove padding to allow edge-to-edge full screens */
+    body[data-page="home"] main { padding: 0; margin: 0; max-width: 100%; }
+    
+    /* 2. Make each section take up exactly 100% of the screen */
+    .home-snap-section {
+        height: 100dvh;
+        width: 100vw;
+        scroll-snap-align: start; /* This tells the phone where to "snap" to */
+        scroll-snap-stop: always; /* Forces it to stop on every screen, no skipping */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem 1.5rem;
+        margin: 0 !important;
+        box-sizing: border-box;
+    }
+
+    body[data-page="home"] .interactive-hero { border: none; border-radius: 0; }
+
+    /* 3. Scale down text so it fits perfectly on 1 screen */
+    body[data-page="home"] .home-section-title { font-size: 2rem; margin-bottom: 1.5rem; }
+    body[data-page="home"] .about-content p { font-size: 1rem; margin-bottom: 1rem; }
+
+    /* 4. Force Highlights into a 2x2 grid so all 4 cards fit on screen */
+    body[data-page="home"] .highlights-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        width: 100%;
+        max-width: 500px;
+    }
+    body[data-page="home"] .highlights-grid .card { padding: 1rem; }
+    body[data-page="home"] .highlights-grid h3 { font-size: 1.1rem; }
+    body[data-page="home"] .highlights-grid p { font-size: 0.85rem; }
+
+    /* Make sure the footer also snaps into view at the very end */
+    body[data-page="home"] .site-footer {
+        scroll-snap-align: end;
+    }
+}

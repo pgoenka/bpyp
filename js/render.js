@@ -17,7 +17,7 @@ function routeRender(page, data) {
 
 function renderHome(data) {
     app.innerHTML = `
-        <section class="interactive-hero" id="home-hero">
+        <section class="interactive-hero home-snap-section" id="home-hero">
             <div class="hero-content">
                 <img src="assets/images/logo.svg" alt="BPYP Logo" style="height: 60px; filter: brightness(0) invert(1); margin-bottom: 2rem;">
                 <h1>${sanitize(data.hero.eventName)}</h1>
@@ -31,8 +31,6 @@ function renderHome(data) {
                 <nav class="portal-nav">
                     <button class="home-hamburger" id="home-menu-toggle" aria-label="Toggle Menu">☰</button>
                     <div class="home-nav-links" id="home-nav-links">
-                        <a href="index.html">Home</a>
-                        <a href="registration.html">Registration</a>
                         <a href="travel.html">Travel</a>
                         <a href="committees.html">Committees</a>
                         <a href="contact.html">Contact</a>
@@ -41,20 +39,20 @@ function renderHome(data) {
             </div>
         </section>
 
-        <section style="margin-top: 5rem;">
-            <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 2rem;">${sanitize(data.about.title)}</h2>
-            <div style="max-width: 800px; margin: auto; text-align: center; font-size: 1.15rem; color: var(--text-secondary);">
-                ${data.about.paragraphs.map(p => `<p style="margin-bottom: 1.5rem;">${sanitize(p)}</p>`).join('')}
+        <section class="about-section home-snap-section">
+            <h2 class="home-section-title">${sanitize(data.about.title)}</h2>
+            <div class="about-content text-center">
+                ${data.about.paragraphs.map(p => `<p>${sanitize(p)}</p>`).join('')}
             </div>
         </section>
         
-        <section class="mt-4" style="margin-top: 5rem;">
-            <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 3rem;">Highlights</h2>
-            <div class="grid">
+        <section class="highlights-section home-snap-section">
+            <h2 class="home-section-title">Highlights</h2>
+            <div class="grid highlights-grid">
                 ${data.highlights.map(h => `
-                    <div class="card" style="text-align: center;">
-                        <h3 style="color: var(--accent-red);">${sanitize(h.title)}</h3>
-                        <p>${sanitize(h.desc)}</p>
+                    <div class="card text-center" style="display: flex; flex-direction: column; justify-content: center;">
+                        <h3 style="color: var(--accent-red); margin-bottom: 0.5rem;">${sanitize(h.title)}</h3>
+                        <p style="margin-bottom: 0;">${sanitize(h.desc)}</p>
                     </div>`).join('')}
             </div>
         </section>
@@ -73,7 +71,6 @@ function renderHome(data) {
             });
         }
 
-        // Home Page Mobile Hamburger Logic
         const homeHamburger = document.getElementById('home-menu-toggle');
         const homeNavLinks = document.getElementById('home-nav-links');
         if (homeHamburger && homeNavLinks) {
