@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
+
 :root {
     /* Premium Dark Greyscale Palette */
     --bg-base: #080808;
@@ -18,7 +20,7 @@
     --border-subtle: #2a2a2a;
     
     /* Typography */
-    --font-heading: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-heading: 'Uncial Antiqua', serif; /* UPDATED THIS LINE */
     --font-body: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
@@ -87,9 +89,20 @@ main { min-height: 80vh; max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; 
 }
 
 /* Hero Section (Sub-pages) */
-.hero { text-align: center; padding: 8rem 2rem; background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-base) 100%); border: 1px solid var(--border-subtle); border-radius: 12px; margin-bottom: 4rem; position: relative; overflow: hidden; }
+/* Hero Section (Sub-pages) */
+.hero { 
+    text-align: center; 
+    /* Changed padding from '8rem 2rem' to Top: 4rem, Right: 2rem, Bottom: 8rem, Left: 2rem */
+    padding: 4rem 2rem 8rem 2rem; 
+    background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-base) 100%); 
+    border: 1px solid var(--border-subtle); 
+    border-radius: 12px; 
+    margin-bottom: 4rem; 
+    position: relative; 
+    overflow: hidden; 
+}
 .hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 60%; height: 1px; background: radial-gradient(circle, var(--accent-red) 0%, transparent 100%); opacity: 0.5; }
-.hero h1 { font-size: 4rem; margin-bottom: 1rem; color: var(--text-primary); }
+.hero h1 { font-size: 1rem; margin-bottom: 1rem; color: var(--text-primary); }
 .hero p { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 600px; margin-inline: auto; }
 
 /* Buttons */
