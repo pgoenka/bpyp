@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC&display=swap');
 :root {
     /* Premium Dark Greyscale Palette */
     --bg-base: #080808;
@@ -20,7 +20,7 @@
     --border-subtle: #2a2a2a;
     
     /* Typography */
-    --font-heading: 'Uncial Antiqua', serif; /* UPDATED THIS LINE */
+    --font-heading: 'Bodoni Moda SC', serif; /* UPDATED THIS LINE */
     --font-body: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
