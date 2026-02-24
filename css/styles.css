@@ -81,7 +81,10 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
    Core Layouts & Components
    ========================================= */
 main { min-height: 80vh; max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; animation: fadeIn 0.8s ease forwards; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { 
+    from { opacity: 0; transform: translateY(10px); } 
+    to { opacity: 1; transform: none; } /* 'none' breaks the menu out of the trap! */
+}
 
 /* Hero Section (Sub-pages) */
 .hero { text-align: center; padding: 8rem 2rem; background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-base) 100%); border: 1px solid var(--border-subtle); border-radius: 12px; margin-bottom: 4rem; position: relative; overflow: hidden; }
@@ -196,8 +199,10 @@ main { min-height: 80vh; max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; 
         display: flex;
         flex-direction: column;
         position: fixed;
-        inset: 0;
-        /* Change background to solid base color */
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100dvh;
         background: var(--bg-base);
         justify-content: center;
         align-items: center;
@@ -235,8 +240,10 @@ main { min-height: 80vh; max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; 
         display: flex;
         flex-direction: column;
         position: fixed;
-        inset: 0;
-        /* Change background to solid base color */
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100dvh;
         background: var(--bg-base);
         justify-content: center;
         align-items: center;
