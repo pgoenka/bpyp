@@ -2,29 +2,35 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Splash Screen Logic
     const splash = document.getElementById('splash-screen');
     if (splash) {
-        // Detect if this is a hard reload
         const navEntries = performance.getEntriesByType('navigation');
         const isReload = navEntries.length > 0 && navEntries[0].type === 'reload';
         
-        // Show if first time in session OR if user refreshed
         if (!sessionStorage.getItem('splashShown') || isReload) {
             setTimeout(() => {
                 splash.classList.add('splash-hidden');
                 sessionStorage.setItem('splashShown', 'true');
-            }, 1800); // 1.8 seconds display time
+            }, 1800);
         } else {
-            // Hide instantly on standard navigation
             splash.style.display = 'none';
         }
     }
 
-    // 2. Mobile Menu Toggle
+    // 2. Global Mobile Menu Toggle (Overlay Mode)
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
     
     if (hamburger && navLinks) {
         hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('show');
+            const isOpen = navLinks.classList.toggle('show');
+            hamburger.textContent = isOpen ? '✖' : '☰'; // Transforms the icon
+        });
+
+        // Close menu if a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('show');
+                hamburger.textContent = '☰';
+            });
         });
     }
 

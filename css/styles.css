@@ -22,12 +22,22 @@
     --font-body: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
+/* =========================================
+   Global Reset & Typography
+   ========================================= */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: var(--font-body); background-color: var(--bg-base); color: var(--text-secondary); line-height: 1.6; overflow-x: hidden; }
 h1, h2, h3 { font-family: var(--font-heading); color: var(--text-primary); font-weight: 700; letter-spacing: -0.5px; }
 a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 
-/* Splash Screen */
+/* Utilities */
+.mt-2 { margin-top: 1rem; }
+.mt-4 { margin-top: 2rem; }
+.text-center { text-align: center; }
+
+/* =========================================
+   Splash Screen
+   ========================================= */
 #splash-screen {
     position: fixed;
     inset: 0;
@@ -53,29 +63,27 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
     50% { transform: scale(1.02); text-shadow: 0 0 20px var(--accent-glow); }
 }
 
-/* Navigation */
+/* =========================================
+   Global Navigation (Sub-pages)
+   ========================================= */
 .navbar { position: sticky; top: 0; background: rgba(18, 18, 18, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-subtle); z-index: 1000; }
 .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2rem; max-width: 1200px; margin: auto; }
-.logo-img { height: 40px; width: auto; display: block; filter: brightness(0) invert(1); /* Forces SVG to white */ }
+.logo-img { height: 40px; width: auto; display: block; filter: brightness(0) invert(1); }
 .nav-links { display: flex; gap: 2.5rem; }
 .nav-item { color: var(--text-secondary); font-weight: 500; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; position: relative; }
 .nav-item:hover, .nav-item.active { color: var(--text-primary); }
 .nav-item::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0%; height: 2px; background: var(--accent-red); transition: width 0.3s ease; }
 .nav-item:hover::after, .nav-item.active::after { width: 100%; }
-.hamburger { 
-    display: none; /* This hides it on PC */
-    background: none; 
-    border: none; 
-    font-size: 1.8rem; 
-    color: var(--text-primary); 
-    cursor: pointer; 
-}
+.hamburger { display: none; background: none; border: none; font-size: 1.8rem; color: var(--text-primary); cursor: pointer; }
+.close-menu-btn { display: none; }
 
-/* Core Layout */
+/* =========================================
+   Core Layouts & Components
+   ========================================= */
 main { min-height: 80vh; max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; animation: fadeIn 0.8s ease forwards; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-/* Hero Section */
+/* Hero Section (Sub-pages) */
 .hero { text-align: center; padding: 8rem 2rem; background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-base) 100%); border: 1px solid var(--border-subtle); border-radius: 12px; margin-bottom: 4rem; position: relative; overflow: hidden; }
 .hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 60%; height: 1px; background: radial-gradient(circle, var(--accent-red) 0%, transparent 100%); opacity: 0.5; }
 .hero h1 { font-size: 4rem; margin-bottom: 1rem; color: var(--text-primary); }
@@ -89,11 +97,29 @@ main { min-height: 80vh; max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; 
 
 /* Cards & Grid */
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-.card { background: var(--bg-card); padding: 2.5rem; border: 1px solid var(--border-subtle); border-radius: 8px; transition: all 0.3s ease; position: relative; overflow: hidden; }
+.card { 
+    background: var(--bg-card); 
+    padding: 2rem; 
+    border: 1px solid var(--border-subtle); 
+    border-radius: 8px; 
+    transition: border-color 0.3s ease, transform 0.3s ease; 
+    position: relative; 
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+}
 .card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: var(--accent-red); transform: scaleX(0); transition: transform 0.4s ease; transform-origin: left; }
 .card:hover { transform: translateY(-5px); border-color: #333; }
 .card:hover::after { transform: scaleX(1); }
 .card h3 { font-size: 1.4rem; margin-bottom: 1rem; color: var(--text-primary); }
+
+/* Committee Card Specifics */
+.committee-img { width: 100%; height: 220px; object-fit: cover; border-radius: 4px; border: 1px solid var(--border-subtle); margin-bottom: 1.5rem; }
+.description-text { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; font-size: 0.95rem; color: var(--text-secondary); }
+.description-text.expanded { -webkit-line-clamp: unset; }
+.read-more-btn { background: none; border: none; color: var(--accent-red); cursor: pointer; padding: 0; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s ease; }
+.read-more-btn:hover { color: var(--text-primary); }
 
 /* Forms */
 .form-group { margin-bottom: 1.5rem; }
@@ -105,147 +131,13 @@ main { min-height: 80vh; max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; 
 .site-footer { background: var(--bg-surface); border-top: 1px solid var(--border-subtle); padding: 5rem 2rem 2rem; margin-top: 4rem; }
 .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; max-width: 1200px; margin: auto; padding-bottom: 3rem; border-bottom: 1px solid var(--border-subtle); }
 .footer-col h4 { color: var(--text-primary); font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem; }
-.footer-col a { display: block; margin-bottom: 0.75rem; color: var(--text-muted); }
+.footer-col a { display: block; margin-bottom: 0.75rem; color: var(--text-muted); transition: color 0.3s ease; }
 .footer-col a:hover { color: var(--accent-red); }
 .footer-bottom { text-align: center; padding-top: 2rem; color: var(--text-muted); font-size: 0.85rem; }
 
 /* =========================================
-   Mobile Responsiveness (Max-width: 768px)
+   Interactive Home Hero & Layout
    ========================================= */
-@media (max-width: 768px) {
-    /* 1. Fix Navigation & Hamburger */
-    .nav-container { padding: 1rem; }
-    .logo-img { height: 32px; } /* Slightly smaller logo on mobile */
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(18, 18, 18, 0.98); /* Darker background for readability */
-        backdrop-filter: blur(15px);
-        padding: 2rem 1rem;
-        border-bottom: 2px solid var(--accent-red);
-        text-align: center;
-        gap: 1.5rem;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    }
-    .nav-links.show { display: flex; }
-    .hamburger { display: block; } /* Shows hamburger on mobile */
-
-    /* 2. Fix Spacing and Padding Constraints */
-    main { padding: 2rem 1rem; }
-    
-    /* 3. Scale Down Hero Section */
-    .hero { 
-        padding: 4rem 1.5rem; 
-        margin-bottom: 2.5rem; 
-        border-radius: 8px;
-    }
-    .hero h1 { font-size: 2.2rem; line-height: 1.2; } /* Prevents text overflow */
-    .hero p { font-size: 1rem; margin-bottom: 2rem; }
-
-    /* 4. Fix Button Stacking */
-    .btn { 
-        display: block; 
-        width: 100%; 
-        margin-bottom: 1rem; 
-        padding: 1rem;
-    }
-    .btn-outline { margin-left: 0; margin-top: 0.5rem; }
-
-    /* 5. Fix Grid & Horizontal Scrolling */
-    .grid { 
-        grid-template-columns: 1fr; /* Forces 1 column on mobile */
-        gap: 1.5rem; 
-    }
-    .card { padding: 1.5rem; } /* Smaller padding inside cards */
-    .card h3 { font-size: 1.25rem; }
-
-    /* 6. Scale Down Splash Screen */
-    .splash-content { font-size: 2.5rem; }
-
-    /* 7. Fix Footer Spacing */
-    .site-footer { padding: 3rem 1.5rem 1.5rem; margin-top: 2rem; }
-    .footer-grid { gap: 2rem; padding-bottom: 2rem; }
-    .footer-col h4 { margin-bottom: 1rem; }
-}
-
-/* Extra fix for very small phones (like iPhone SE) */
-@media (max-width: 380px) {
-    .hero h1 { font-size: 1.8rem; }
-    .btn { font-size: 0.85rem; }
-}
-
-.committee-img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover; /* Ensures the image fills the space without stretching */
-    border-radius: 4px;
-    border: 1px solid var(--border-subtle);
-    margin-bottom: 1.5rem; /* Space between the image and the heading */
-}
-
-.description-text {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-}
-
-.description-text.expanded {
-    -webkit-line-clamp: unset; /* Removes the 3-line limit */
-}
-
-.read-more-btn {
-    background: none;
-    border: none;
-    color: var(--accent-red);
-    cursor: pointer;
-    padding: 0.5rem 0 1.5rem 0;
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: color 0.3s ease;
-}
-
-.read-more-btn:hover {
-    color: var(--text-primary);
-}
-
-/* Update the Card class to use Flexbox */
-.card { 
-    background: var(--bg-card); 
-    padding: 2rem; /* Slightly tighter padding for a sleeker look */
-    border: 1px solid var(--border-subtle); 
-    border-radius: 8px; 
-    transition: border-color 0.3s ease, transform 0.3s ease; 
-    position: relative; 
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    height: 100%; /* Forces all cards in a row to be the exact same height */
-}
-
-/* Update the Read More Button to fit in the new horizontal footer */
-.read-more-btn {
-    background: none;
-    border: none;
-    color: var(--accent-red);
-    cursor: pointer;
-    padding: 0; /* Removed old vertical padding */
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: color 0.3s ease;
-}
-
-/* Interactive Home Hero */
 .interactive-hero {
     position: relative;
     min-height: 80vh;
@@ -259,204 +151,151 @@ main { min-height: 80vh; max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; 
     background: var(--bg-surface);
     overflow: hidden;
     margin-bottom: 4rem;
-    
-    /* Default cursor positions for the spotlight */
     --cursor-x: 50%;
     --cursor-y: 50%;
 }
-
-/* The severe red spotlight that follows the cursor */
 .interactive-hero::before {
     content: '';
     position: absolute;
     inset: 0;
     background: radial-gradient(circle 500px at var(--cursor-x) var(--cursor-y), rgba(255, 30, 30, 0.12), transparent 70%);
     z-index: 1;
-    pointer-events: none; /* Allows clicking on buttons beneath it */
-    transition: background 0.1s ease-out; /* Smooth tracking */
+    pointer-events: none;
+    transition: background 0.1s ease-out;
 }
+.hero-content { position: relative; z-index: 2; padding: 2rem; }
+.interactive-hero h1 { font-size: 4.5rem; margin-bottom: 0.5rem; letter-spacing: -2px; text-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+.interactive-hero p { font-size: 1.25rem; color: var(--text-muted); letter-spacing: 1px; }
 
-.hero-content {
-    position: relative;
-    z-index: 2;
-    padding: 2rem;
-}
+/* Home Desktop Nav */
+.portal-nav { margin-top: 1rem; text-align: center; }
+.home-hamburger { display: none; background: none; border: none; color: var(--text-primary); font-size: 2.5rem; cursor: pointer; margin: 0 auto; transition: color 0.3s ease; }
+.home-hamburger:hover { color: var(--accent-red); }
+.home-nav-links { display: flex; gap: 3rem; justify-content: center; }
+.home-nav-links a { color: var(--text-secondary); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; position: relative; padding-bottom: 0.5rem; }
+.home-nav-links a:hover { color: var(--text-primary); }
+.home-nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0%; height: 2px; background: var(--accent-red); transition: width 0.3s ease; }
+.home-nav-links a:hover::after { width: 100%; }
 
-.interactive-hero h1 {
-    font-size: 4.5rem;
-    margin-bottom: 0.5rem;
-    letter-spacing: -2px;
-    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
-}
-
-.interactive-hero p {
-    font-size: 1.25rem;
-    color: var(--text-muted);
-    letter-spacing: 1px;
-}
-
-/* Inline Portal Navigation */
-.portal-nav {
-    display: flex;
-    gap: 3rem;
-    justify-content: center;
-    margin-top: 1rem;
-}
-
-.portal-nav a {
-    color: var(--text-secondary);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.9rem;
-    position: relative;
-    padding-bottom: 0.5rem;
-}
-
-.portal-nav a:hover {
-    color: var(--text-primary);
-}
-
-.portal-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: var(--accent-red);
-    transition: width 0.3s ease;
-}
-
-.portal-nav a:hover::after {
-    width: 100%;
-}
-
-/* Mobile Adjustments for Interactive Hero */
-@media (max-width: 768px) {
-    .interactive-hero h1 { font-size: 2.8rem; }
-    .portal-nav { flex-direction: column; gap: 1.5rem; }
-}
-
-/* Inline Portal Navigation */
-.portal-nav {
-    margin-top: 1rem;
-    text-align: center;
-}
-
-.home-hamburger {
-    display: none; /* Hidden on Desktop */
-    background: none;
-    border: none;
-    color: var(--text-primary);
-    font-size: 2.5rem;
-    cursor: pointer;
-    margin: 0 auto;
-    transition: color 0.3s ease;
-}
-
-.home-hamburger:hover {
-    color: var(--accent-red);
-}
-
-.home-nav-links {
-    display: flex;
-    gap: 3rem;
-    justify-content: center;
-}
-
-.home-nav-links a {
-    color: var(--text-secondary);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.9rem;
-    position: relative;
-    padding-bottom: 0.5rem;
-}
-
-.home-nav-links a:hover {
-    color: var(--text-primary);
-}
-
-.home-nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: var(--accent-red);
-    transition: width 0.3s ease;
-}
-
-.home-nav-links a:hover::after {
-    width: 100%;
-}
-
-/* Mobile Adjustments for Interactive Hero */
-@media (max-width: 768px) {
-    .interactive-hero h1 { font-size: 2.8rem; }
-    
-    /* Home Menu Mobile Swap */
-    .home-hamburger {
-        display: block; /* Show hamburger below buttons */
-    }
-    
-    .home-nav-links {
-        display: none; /* Hide the horizontal links */
-        flex-direction: column;
-        gap: 1.5rem;
-        margin-top: 1.5rem;
-    }
-    
-    .home-nav-links.show {
-        display: flex; /* Display them stacked when hamburger is tapped */
-        animation: fadeIn 0.4s ease forwards;
-    }
-}
-
-/* =========================================
-   Home Page Desktop Spacing
-   ========================================= */
-.about-section, .highlights-section {
-    margin-top: 5rem;
-}
-.home-section-title {
-    font-size: 2.5rem; 
-    text-align: center; 
-    margin-bottom: 2rem;
-}
-.about-content {
-    max-width: 800px; 
-    margin: auto; 
-    font-size: 1.15rem; 
-    color: var(--text-secondary);
-}
+/* Home Desktop Spacing */
+.about-section, .highlights-section { margin-top: 5rem; }
+.home-section-title { font-size: 2.5rem; text-align: center; margin-bottom: 2rem; }
+.about-content { max-width: 800px; margin: auto; font-size: 1.15rem; color: var(--text-secondary); }
 .about-content p { margin-bottom: 1.5rem; }
 
 /* =========================================
-   Mobile: Full-Screen Snap Scrolling (Home Only)
+   Mobile Responsiveness (Max-width: 768px)
    ========================================= */
 @media (max-width: 768px) {
-    /* 1. Turn the body into a snap-scroller */
+    /* 1. GLOBAL Full-Screen Overlay (Sub-pages) */
+    .nav-container { padding: 1rem 1.5rem; }
+    .logo-img { height: 32px; }
+    .hamburger { display: block; z-index: 2001; position: relative; }
+    
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        inset: 0;
+        background: rgba(8, 8, 8, 0.98);
+        backdrop-filter: blur(15px);
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        z-index: 2000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        text-align: center;
+        border: none;
+    }
+    .nav-links.show { opacity: 1; visibility: visible; }
+    .nav-links a { font-size: 1.8rem; }
+
+    /* 2. HOME PAGE Full-Screen Overlay */
+    .home-hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        background: transparent;
+        border: 1px solid var(--border-subtle);
+        color: var(--text-primary);
+        padding: 0.75rem 2rem;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border-radius: 4px;
+        margin: 0 auto;
+        transition: border-color 0.3s ease;
+    }
+    .home-hamburger:hover { border-color: var(--accent-red); }
+    
+    .home-nav-links {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        inset: 0;
+        background: rgba(8, 8, 8, 0.98);
+        backdrop-filter: blur(15px);
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        z-index: 2000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        margin: 0;
+    }
+    .home-nav-links.show { opacity: 1; visibility: visible; }
+    .home-nav-links a { font-size: 2rem; }
+    
+    .close-menu-btn {
+        display: block;
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        background: none;
+        border: none;
+        color: var(--text-primary);
+        font-size: 2.5rem;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+    .close-menu-btn:hover { color: var(--accent-red); }
+
+    /* 3. General Mobile Spacing & Layout */
+    main { padding: 2rem 1rem; }
+    .hero { padding: 4rem 1.5rem; margin-bottom: 2.5rem; border-radius: 8px; }
+    .hero h1, .interactive-hero h1 { font-size: 2.2rem; line-height: 1.2; }
+    .hero p { font-size: 1rem; margin-bottom: 2rem; }
+    
+    .btn { display: block; width: 100%; margin-bottom: 1rem; padding: 1rem; text-align: center; }
+    .btn-outline { margin-left: 0; margin-top: 0.5rem; }
+    
+    .grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .card { padding: 1.5rem; }
+    .card h3 { font-size: 1.25rem; }
+    
+    .splash-content { font-size: 2.5rem; }
+    .site-footer { padding: 3rem 1.5rem 1.5rem; margin-top: 2rem; }
+    .footer-grid { gap: 2rem; padding-bottom: 2rem; }
+
+    /* 4. Home Page Snap Scrolling */
     body[data-page="home"] {
         height: 100dvh;
-        height: 100vh; /* Fallback */
+        height: 100vh;
         overflow-y: scroll;
         scroll-snap-type: y mandatory;
         scroll-behavior: smooth;
     }
-    
-    /* Remove padding to allow edge-to-edge full screens */
     body[data-page="home"] main { padding: 0; margin: 0; max-width: 100%; }
     
-    /* 2. Make each section take up exactly 100% of the screen */
     .home-snap-section {
         height: 100dvh;
         width: 100vw;
-        scroll-snap-align: start; /* This tells the phone where to "snap" to */
-        scroll-snap-stop: always; /* Forces it to stop on every screen, no skipping */
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -465,14 +304,10 @@ main { min-height: 80vh; max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; 
         margin: 0 !important;
         box-sizing: border-box;
     }
-
     body[data-page="home"] .interactive-hero { border: none; border-radius: 0; }
-
-    /* 3. Scale down text so it fits perfectly on 1 screen */
     body[data-page="home"] .home-section-title { font-size: 2rem; margin-bottom: 1.5rem; }
     body[data-page="home"] .about-content p { font-size: 1rem; margin-bottom: 1rem; }
-
-    /* 4. Force Highlights into a 2x2 grid so all 4 cards fit on screen */
+    
     body[data-page="home"] .highlights-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -483,9 +318,12 @@ main { min-height: 80vh; max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; 
     body[data-page="home"] .highlights-grid .card { padding: 1rem; }
     body[data-page="home"] .highlights-grid h3 { font-size: 1.1rem; }
     body[data-page="home"] .highlights-grid p { font-size: 0.85rem; }
+    
+    body[data-page="home"] .site-footer { scroll-snap-align: end; }
+}
 
-    /* Make sure the footer also snaps into view at the very end */
-    body[data-page="home"] .site-footer {
-        scroll-snap-align: end;
-    }
+/* Extra fix for very small phones (like iPhone SE) */
+@media (max-width: 380px) {
+    .hero h1, .interactive-hero h1 { font-size: 1.8rem; }
+    .btn { font-size: 0.85rem; }
 }

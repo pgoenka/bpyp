@@ -29,8 +29,10 @@ function renderHome(data) {
                 </div>
 
                 <nav class="portal-nav">
-                    <button class="home-hamburger" id="home-menu-toggle" aria-label="Toggle Menu">☰</button>
+                    <button class="home-hamburger" id="home-menu-toggle" aria-label="Open Menu">☰ MENU</button>
+                    
                     <div class="home-nav-links" id="home-nav-links">
+                        <button class="close-menu-btn" id="home-menu-close" aria-label="Close Menu">✖</button>
                         <a href="travel.html">Travel</a>
                         <a href="committees.html">Committees</a>
                         <a href="contact.html">Contact</a>
@@ -71,11 +73,25 @@ function renderHome(data) {
             });
         }
 
+        // Full-Screen Menu Logic
         const homeHamburger = document.getElementById('home-menu-toggle');
+        const homeClose = document.getElementById('home-menu-close');
         const homeNavLinks = document.getElementById('home-nav-links');
-        if (homeHamburger && homeNavLinks) {
+        
+        if (homeHamburger && homeNavLinks && homeClose) {
+            // Open Menu
             homeHamburger.addEventListener('click', () => {
-                homeNavLinks.classList.toggle('show');
+                homeNavLinks.classList.add('show');
+            });
+            // Close Menu
+            homeClose.addEventListener('click', () => {
+                homeNavLinks.classList.remove('show');
+            });
+            // Close if a link is clicked
+            homeNavLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    homeNavLinks.classList.remove('show');
+                });
             });
         }
     }, 100);
