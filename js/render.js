@@ -8,6 +8,11 @@ const app = document.getElementById('app-content');
 
 function routeRender(page, data) {
     app.innerHTML = ''; 
+    
+    // Clean up the floating button if we navigate to another page
+    const existingNavBtn = document.getElementById('mobile-committee-nav');
+    if (existingNavBtn) existingNavBtn.remove();
+    
     if (page === 'home') renderHome(data);
     if (page === 'travel') renderTravel(data);
     if (page === 'committees') renderCommittees(data);
@@ -162,7 +167,7 @@ function renderCommittees(data) {
         if (!committeesList || committeesList.length === 0) return '';
         
         let sectionHtml = `
-            <section style="margin-bottom: 4rem;">
+            <section id="${title.toLowerCase()}-section" style="margin-bottom: 4rem;">
                 <h3 style="color: var(--accent-red); font-size: 1.8rem; margin-bottom: 2rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem; display: inline-block;">
                     ${sanitize(title)} Committees
                 </h3>
@@ -197,7 +202,45 @@ function renderCommittees(data) {
     html += buildCommitteeGrid(data.offline, "Offline");
     html += buildCommitteeGrid(data.online, "Online");
 
+    // Set the main content
     app.innerHTML = html;
+
+    // INJECT BUTTON DIRECTLY TO BODY (This fixes the float issue)
+    const btn = document.createElement('button');
+    btn.id = 'mobile-committee-nav';
+    btn.className = 'floating-nav-btn';
+    btn.innerHTML = 'Go to Online &darr;';
+    document.body.appendChild(btn);
+
+    // Add Scroll Tracking Logic
+    setTimeout(() => {
+        const navBtn = document.getElementById('mobile-committee-nav');
+        const offlineSec = document.getElementById('offline-section');
+        const onlineSec = document.getElementById('online-section');
+
+        if (navBtn && offlineSec && onlineSec) {
+            const updateButtonState = () => {
+                const onlineRect = onlineSec.getBoundingClientRect();
+                
+                if (onlineRect.top < window.innerHeight * 0.6) {
+                    navBtn.innerHTML = '&uarr; Go to Offline';
+                    navBtn.onclick = () => {
+                        const offset = offlineSec.offsetTop - 80; 
+                        window.scrollTo({ top: offset, behavior: 'smooth' });
+                    };
+                } else {
+                    navBtn.innerHTML = 'Go to Online &darr;';
+                    navBtn.onclick = () => {
+                        const offset = onlineSec.offsetTop - 80;
+                        window.scrollTo({ top: offset, behavior: 'smooth' });
+                    };
+                }
+            };
+            
+            window.addEventListener('scroll', updateButtonState);
+            updateButtonState();
+        }
+    }, 100);
 }
 
 function renderCommitteeDetails(data) {
