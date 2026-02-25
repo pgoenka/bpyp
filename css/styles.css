@@ -97,6 +97,9 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
    ========================================= */
 main { min-height: 80vh; max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; animation: fadeIn 0.8s ease forwards; }
 
+/* Pull the home page content up higher on the screen */
+body[data-page="home"] main { padding-top: 1.5rem; padding-bottom: 2rem; }
+
 @keyframes fadeIn { 
     from { opacity: 0; transform: translateY(10px); } 
     to { opacity: 1; transform: none; } /* 'none' prevents animation from trapping fixed menus */
@@ -115,7 +118,7 @@ main { min-height: 80vh; max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; 
     overflow: hidden; 
 }
 .hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 60%; height: 1px; background: radial-gradient(circle, var(--accent-red) 0%, transparent 100%); opacity: 0.5; }
-.hero h1 { font-size: 2rem; color: var(--text-primary); }
+.hero h1 { font-size: 3rem; color: var(--text-primary); }
 .hero p { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 600px; margin-inline: auto; font-family: var(--font-body); }
 
 /* Buttons */
@@ -187,7 +190,7 @@ main { min-height: 80vh; max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; 
    ========================================= */
 .interactive-hero {
     position: relative;
-    min-height: 80vh;
+    min-height: 60vh; /* Reduced from 80vh to save vertical space */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -196,9 +199,9 @@ main { min-height: 80vh; max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; 
     border-radius: 12px;
     border: 1px solid var(--border-subtle);
     background: rgba(18, 18, 18, 0.4);
-    backdrop-filter: blur(8px); /* Frosted glass effect */
+    backdrop-filter: blur(8px);
     overflow: hidden;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem; /* Reduced from 4rem */
     --cursor-x: 50%;
     --cursor-y: 50%;
 }
@@ -211,9 +214,19 @@ main { min-height: 80vh; max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; 
     pointer-events: none;
     transition: background 0.1s ease-out;
 }
-.hero-content { position: relative; z-index: 2; padding: 0.5rem 2rem 2rem 2rem; }
-.interactive-hero h1 { font-size: 4.5rem; margin-bottom: 0.5rem; letter-spacing: -2px; text-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+.hero-content { position: relative; z-index: 2; padding: 1.5rem 2rem; width: 100%; }
+
+/* Override the inline logo size to shrink it on desktop */
+.hero-content img { height: 250px !important; }
+
+/* Scaled down heading and text */
+.interactive-hero h1 { font-size: 3.5rem; margin-bottom: 0.25rem; letter-spacing: -1px; text-shadow: 0 4px 20px rgba(0,0,0,0.5); }
 .interactive-hero p { font-size: 1.25rem; color: var(--text-muted); letter-spacing: 1px; font-family: var(--font-body); }
+
+/* Compress the spacing around the buttons */
+.interactive-hero .btn { padding: 0.75rem 2rem; }
+.hero-content > div[style] { margin-top: 1.5rem !important; margin-bottom: 2rem !important; }
+
 
 /* Home Desktop Nav */
 .portal-nav { margin-top: 1rem; text-align: center; }
