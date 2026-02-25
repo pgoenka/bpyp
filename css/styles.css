@@ -348,7 +348,7 @@ body[data-page="home"] main { padding-top: 1.5rem; padding-bottom: 2rem; }
     .hero p, .interactive-hero p { font-size: 0.85rem; margin-bottom: 1.5rem; }
     
     /* Scale the logo down slightly just for phones */
-    .hero-content img { height: 200px !important; }
+    .hero-content img { height: 200px !important; align-self: center;}
     
     .btn { display: block; width: 100%; margin-bottom: 1rem; padding: 1rem; text-align: center; }
     .btn-outline { margin-left: 0; margin-top: 0.5rem; }
