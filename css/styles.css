@@ -115,7 +115,7 @@ main { min-height: 80vh; max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; 
     overflow: hidden; 
 }
 .hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 60%; height: 1px; background: radial-gradient(circle, var(--accent-red) 0%, transparent 100%); opacity: 0.5; }
-.hero h1 { font-size: 3rem; color: var(--text-primary); }
+.hero h1 { font-size: 2rem; color: var(--text-primary); }
 .hero p { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 600px; margin-inline: auto; font-family: var(--font-body); }
 
 /* Buttons */
