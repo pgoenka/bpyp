@@ -143,6 +143,57 @@ main { min-height: 80vh; max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; 
 .form-group input, .form-group textarea { width: 100%; padding: 1rem; background: var(--bg-base); border: 1px solid var(--border-subtle); border-radius: 4px; color: var(--text-primary); font-family: inherit; transition: all 0.3s ease; }
 .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent-red); box-shadow: 0 0 0 1px var(--accent-red); }
 
+/* =========================================
+   Data Tables (Travel Schedules)
+   ========================================= */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-card);
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px; /* Forces scrolling on small screens instead of squishing */
+}
+
+.styled-table thead tr {
+    background-color: var(--bg-surface);
+    color: var(--text-secondary);
+    text-align: left;
+    border-bottom: 2px solid var(--border-subtle);
+}
+
+.styled-table th {
+    padding: 1.2rem 1.5rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.styled-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+.styled-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.styled-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: none;
+}
+
 /* Footer */
 .site-footer { background: var(--bg-surface); border-top: 1px solid var(--border-subtle); padding: 5rem 2rem 2rem; margin-top: 4rem; }
 .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; max-width: 1200px; margin: auto; padding-bottom: 3rem; border-bottom: 1px solid var(--border-subtle); }

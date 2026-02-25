@@ -1,37 +1,38 @@
 {
-  "introduction": {
+  "hero": {
     "title": "Getting to Pilani",
-    "details": [
-      "Pilani is located in rural Rajasthan.",
-      "Not directly connected by air or train.",
-      "Travel requires combination routes."
-    ]
+    "subtitle": "Your comprehensive guide to reaching the BITS Pilani campus."
   },
+  "intro": "Pilani is located in rural Rajasthan and is somewhat isolated from major cities, making the journey quite an adventure. It is not directly connected by air or train, so reaching the campus usually involves a combination of transportation modes.",
   "routes": [
     {
       "title": "From Delhi",
-      "details": "5–6 hour bus journey from ISBT Kashmere Gate or Dhaula Kuan. Alternatively, take a train to Loharu Junction (LHU) followed by a cab."
+      "details": "The bus journey is approximately 5-6 hours long. Buses are available from ISBT Kashmere Gate and Dhaula Kuan. Alternatively, you can take a train to Loharu Junction and hire a cab to the campus."
     },
     {
       "title": "From Jaipur",
-      "details": "4–5 hour bus journey from Sindhi Camp Bus Stand."
+      "details": "The journey from Jaipur is around 4-5 hours by bus. Buses from the Sindhi Camp Bus Stand provide direct services to Pilani."
     }
   ],
-  "airports": [
-    { "name": "Indira Gandhi International Airport (Delhi)", "time": "5-6 hours to campus" },
-    { "name": "Jaipur International Airport", "time": "4-5 hours to campus" }
+  "trainsOutbound": [
+    { "train": "12259 - Bikaner AC Duronto", "from": "NDLS", "departure": "11:15 (Fri, Mar 28)", "to": "LHU", "arrival": "13:50" },
+    { "train": "14728 - Shri Ganganagar", "from": "DEC", "departure": "19:03 (Fri, Mar 28)", "to": "LHU", "arrival": "23:00" },
+    { "train": "04404 - Ringas Khatu Shyam", "from": "DEC", "departure": "21:27 (Fri, Mar 28)", "to": "LHU", "arrival": "01:00" },
+    { "train": "22482 - Jodhpur SF Express", "from": "DEC", "departure": "23:15 (Fri, Mar 28)", "to": "LHU", "arrival": "01:40" },
+    { "train": "12457 - Bikaner SF Express", "from": "DEC", "departure": "23:52 (Fri, Mar 28)", "to": "LHU", "arrival": "02:20" }
   ],
-  "trainSchedules": {
-    "delhiToLoharu": [
-      { "trainName": "BKN SF EXP (12457)", "from": "NDLS", "departure": "23:35", "to": "LHU", "arrival": "02:40" }
-    ],
-    "loharuToDelhi": [
-      { "trainName": "BKN DEE EXP (12458)", "from": "LHU", "departure": "02:50", "to": "DEE", "arrival": "06:05" }
-    ]
-  },
+  "trainsInbound": [
+    { "train": "22422 - Salasar SF Express", "from": "LHU", "departure": "18:53 (Sun, Mar 30)", "to": "DEC", "arrival": "21:28" },
+    { "train": "19701 - Sainik Express", "from": "LHU", "departure": "01:45 (Mon, Mar 31)", "to": "DEC", "arrival": "05:15" },
+    { "train": "12458 - Delhi Sarai Rohilla SF", "from": "LHU", "departure": "02:40 (Mon, Mar 31)", "to": "DEC", "arrival": "05:34" },
+    { "train": "14727 - Tilak Bridge Express", "from": "LHU", "departure": "03:35 (Mon, Mar 31)", "to": "DEC", "arrival": "07:48" },
+    { "train": "04403 - Delhi Khatu Shyam", "from": "LHU", "departure": "07:25 (Mon, Mar 31)", "to": "DEC", "arrival": "10:46" },
+    { "train": "22471 - Delhi Sarai Rohilla BKN", "from": "LHU", "departure": "13:45 (Mon, Mar 31)", "to": "DEC", "arrival": "16:45" }
+  ],
   "tips": [
-    "Book tickets well in advance.",
-    "Carry essential items (limited local shopping).",
-    "Prepare for summer weather (sunscreen, caps, light clothing)."
-  ]
+    { "title": "Book in Advance", "desc": "Always book train or bus tickets well in advance, especially during event seasons." },
+    { "title": "Carry Essentials", "desc": "Pilani is a small town, so carry essential items with you as options for shopping are limited." },
+    { "title": "Prepare for Weather", "desc": "Summers can be harsh, so carry sunscreen, caps, and light clothing." }
+  ],
+  "disclaimer": "Please note kindly that BITS Pilani and Accord would not be liable to make travel arrangements for participants. All delegates are requested to arrange their trip by themselves to the venue. However, we can offer online assistance as needed."
 }

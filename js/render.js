@@ -106,16 +106,92 @@ function renderHome(data) {
 }
 
 function renderTravel(data) {
-    let html = `<section><h2>${sanitize(data.introduction.title)}</h2><ul>`;
-    data.introduction.details.forEach(d => html += `<li>${sanitize(d)}</li>`);
-    html += `</ul></section><section class="mt-4"><h2>Routes</h2><div class="grid">`;
-    data.routes.forEach(r => html += `<div class="card"><h3>${sanitize(r.title)}</h3><p>${sanitize(r.details)}</p></div>`);
-    html += `</div></section><section class="mt-4"><h2>Train Schedules</h2><div class="table-wrapper"><table>`;
-    html += `<thead><tr><th>Train</th><th>From</th><th>Departs</th><th>To</th><th>Arrives</th></tr></thead><tbody>`;
-    data.trainSchedules.delhiToLoharu.forEach(t => {
-        html += `<tr><td>${sanitize(t.trainName)}</td><td>${sanitize(t.from)}</td><td>${sanitize(t.departure)}</td><td>${sanitize(t.to)}</td><td>${sanitize(t.arrival)}</td></tr>`;
-    });
-    html += `</tbody></table></div></section>`;
+    let html = `
+        <section class="hero" style="padding: 4rem 2rem; margin-bottom: 3rem;">
+            <h1 style="font-size: 3.5rem; color: var(--accent-red);">${sanitize(data.hero.title)}</h1>
+            <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">${sanitize(data.hero.subtitle)}</p>
+        </section>
+
+        <section style="margin-bottom: 4rem; text-align: center;">
+            <p style="font-size: 1.15rem; color: var(--text-primary); max-width: 800px; margin: 0 auto; line-height: 1.8;">
+                ${sanitize(data.intro)}
+            </p>
+        </section>
+
+        <section style="margin-bottom: 5rem;">
+            <h2 style="text-align: center; margin-bottom: 2rem;">Major Routes</h2>
+            <div class="grid">
+                ${data.routes.map(r => `
+                    <div class="card">
+                        <h3 style="color: var(--accent-red); font-size: 1.5rem; margin-bottom: 1rem;">${sanitize(r.title)}</h3>
+                        <p style="color: var(--text-secondary); line-height: 1.7;">${sanitize(r.details)}</p>
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+
+        <section style="margin-bottom: 5rem;">
+            <h2 style="text-align: center; margin-bottom: 2rem;">Train Schedules</h2>
+            
+            <h3 style="color: var(--text-primary); margin-bottom: 1rem;">Delhi &rarr; Loharu (Arrivals)</h3>
+            <div class="table-wrapper">
+                <table class="styled-table">
+                    <thead>
+                        <tr><th>Train Name / No.</th><th>From</th><th>Departure</th><th>To</th><th>Arrival</th></tr>
+                    </thead>
+                    <tbody>
+                        ${data.trainsOutbound.map(t => `
+                            <tr>
+                                <td style="font-weight: 600;">${sanitize(t.train)}</td>
+                                <td>${sanitize(t.from)}</td>
+                                <td style="color: var(--accent-red);">${sanitize(t.departure)}</td>
+                                <td>${sanitize(t.to)}</td>
+                                <td>${sanitize(t.arrival)}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="color: var(--text-primary); margin-top: 3rem; margin-bottom: 1rem;">Loharu &rarr; Delhi (Departures)</h3>
+            <div class="table-wrapper">
+                <table class="styled-table">
+                    <thead>
+                        <tr><th>Train Name / No.</th><th>From</th><th>Departure</th><th>To</th><th>Arrival</th></tr>
+                    </thead>
+                    <tbody>
+                        ${data.trainsInbound.map(t => `
+                            <tr>
+                                <td style="font-weight: 600;">${sanitize(t.train)}</td>
+                                <td>${sanitize(t.from)}</td>
+                                <td style="color: var(--accent-red);">${sanitize(t.departure)}</td>
+                                <td>${sanitize(t.to)}</td>
+                                <td>${sanitize(t.arrival)}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section style="margin-bottom: 4rem;">
+            <h2 style="text-align: center; margin-bottom: 2rem;">Travel Tips</h2>
+            <div class="grid">
+                ${data.tips.map(t => `
+                    <div class="card" style="padding: 1.5rem;">
+                        <h4 style="color: var(--text-primary); margin-bottom: 0.5rem; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;">${sanitize(t.title)}</h4>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">${sanitize(t.desc)}</p>
+                    </div>
+                `).join('')}
+            </div>
+        </section>
+
+        <section style="background: rgba(255, 30, 30, 0.05); border: 1px solid rgba(255, 30, 30, 0.2); padding: 2rem; border-radius: 8px; text-align: center;">
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin: 0;">
+                <strong style="color: var(--accent-red);">NOTE:</strong> ${sanitize(data.disclaimer)}
+            </p>
+        </section>
+    `;
     app.innerHTML = html;
 }
 
