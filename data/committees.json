@@ -21,6 +21,16 @@
       "image": "assets/images/committees/aippm.jpg"
     },
     {
+      "id": "unsc",
+      "name": "United Nations Security Council",
+      "agenda": "Responding to the Expansion of Armed Extremist Activity in the Sahel Region: State Collapse, Foreign Military Presence, and Civilian Protection",
+      "description": "To be added.",
+      "chairpersons": [
+        "To be added"
+      ],
+      "image": "assets/images/committees/unsc.jpg"
+    },
+    {
       "id": "cbfc",
       "name": "Central Board of Film Certification",
       "agenda": "Regulation of Politically Polarising Cinema in India: Certification Disputes and State Responses to The Kerala Story, The Kashmir Files, Article 370, and 72 Hoorain.",
@@ -39,6 +49,16 @@
         "To be added"
       ],
       "image": "assets/images/committees/unga.jpg"
+    },
+    {
+      "id": "ipl",
+      "name": "Indian Premier League",
+      "agenda": "The Classic Auction.",
+      "description": "To be added.",
+      "chairpersons": [
+        "To be added"
+      ],
+      "image": "assets/images/committees/ipl.jpg"
     }
   ],
   "online": [
@@ -71,6 +91,16 @@
         "To be added"
       ],
       "image": "assets/images/committees/hunsc.jpg"
+    },
+    {
+      "id": "g20",
+      "name": "G20 Nations Summit",
+      "agenda": "TBD",
+      "description": "To be added.",
+      "chairpersons": [
+        "To be added"
+      ],
+      "image": "assets/images/committees/g20.jpg"
     }
   ]
 }
