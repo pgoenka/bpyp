@@ -196,21 +196,62 @@ function renderTravel(data) {
 }
 
 function renderContact(data) {
-    let html = `<section><h2>Contact Us</h2><div class="grid"><div class="card"><h3>Key Contacts</h3><ul>`;
-    data.phones.forEach(p => html += `<li><b>${sanitize(p.role)}:</b> ${sanitize(p.number)}</li>`);
-    data.emails.forEach(e => html += `<li>Email: ${sanitize(e)}</li>`);
-    html += `</ul></div><div class="card"><h3>Location</h3><iframe src="${data.mapEmbed}" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div></div></section>`;
-    
-    // Append Form
-    html += `
-        <section class="mt-4">
-            <h2>Send a Message</h2>
-            <form id="contactForm" class="card">
-                <div class="form-group"><label>Name</label><input type="text" required></div>
-                <div class="form-group"><label>Email</label><input type="email" required></div>
-                <div class="form-group"><label>Message</label><textarea rows="4" required></textarea></div>
-                <button type="submit" class="btn">Send</button>
-            </form>
+    let html = `
+        <section class="hero" style="padding: 4rem 2rem; margin-bottom: 3rem;">
+            <h1 style="font-size: 3.5rem; color: var(--accent-red);">Contact Us</h1>
+            <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-family: var(--font-body);">Have a question or need assistance? Reach out to the Secretariat.</p>
+        </section>
+
+        <section class="grid" style="align-items: flex-start; margin-bottom: 5rem;">
+            
+            <div style="display: flex; flex-direction: column; gap: 2rem;">
+                <div class="card" style="padding: 2.5rem;">
+                    <h3 style="color: var(--accent-red); margin-bottom: 1.5rem; text-transform: uppercase; font-size: 1.2rem; letter-spacing: 1px;">Get in Touch</h3>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; font-family: var(--font-body);">Phone</h4>
+                        ${data.phones.map(p => `<p style="color: var(--text-primary); margin-bottom: 0.25rem; font-family: var(--font-body);"><strong>${sanitize(p.role)}:</strong> ${sanitize(p.number)}</p>`).join('')}
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; font-family: var(--font-body);">Email</h4>
+                        ${data.emails.map(e => `<p style="margin-bottom: 0.25rem; font-family: var(--font-body);"><a href="mailto:${sanitize(e)}" style="color: var(--text-primary); transition: color 0.3s ease;">${sanitize(e)}</a></p>`).join('')}
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; font-family: var(--font-body);">Social</h4>
+                        <a href="${sanitize(data.social.instagram)}" target="_blank" style="color: var(--accent-red); font-weight: 600; text-decoration: none; font-family: var(--font-body);">Follow us on Instagram &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="card" style="padding: 0; overflow: hidden; height: 250px;">
+                    <iframe src="${sanitize(data.mapEmbed)}" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <div class="card" style="padding: 3rem 2.5rem;">
+                <h3 style="color: var(--text-primary); margin-bottom: 2rem; font-size: 1.8rem;">Send a Message</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input type="text" name="user_name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Your Email</label>
+                        <input type="email" name="user_email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <input type="text" name="subject" placeholder="How can we help?" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea rows="5" name="message" placeholder="Write your message here..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">Send Message</button>
+                </form>
+            </div>
+            
         </section>
     `;
     app.innerHTML = html;
