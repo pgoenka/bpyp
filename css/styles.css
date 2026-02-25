@@ -127,16 +127,23 @@ main { min-height: 80vh; max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; 
 /* Cards & Grid */
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
 .card { 
-    background: var(--bg-card); 
+    /* Changed to a semi-transparent dark grey (matches #1a1a1a but at 45% opacity) */
+    background: rgba(26, 26, 26, 0.45); 
+    
+    /* Applies a strong blur to the background image underneath */
+    backdrop-filter: blur(16px); 
+    -webkit-backdrop-filter: blur(16px); /* For Safari support */
+    
     padding: 1.25rem 2rem 2rem 2rem; 
-    border: 1px solid var(--border-subtle); 
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Softened the border slightly for the glass look */
     border-radius: 8px; 
-    transition: border-color 0.3s ease, transform 0.3s ease; 
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; 
     position: relative; 
     overflow: hidden;
     display: flex;
     flex-direction: column;
     height: 100%; 
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* Adds a subtle drop shadow to lift it off the background */
 }
 .card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: var(--accent-red); transform: scaleX(0); transition: transform 0.4s ease; transform-origin: left; }
 .card:hover { transform: translateY(-5px); border-color: #333; }
