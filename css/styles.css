@@ -217,7 +217,11 @@ body[data-page="home"] main { padding-top: 1.5rem; padding-bottom: 2rem; }
 .hero-content { position: relative; z-index: 2; padding: 1.5rem 2rem; width: 100%; }
 
 /* Override the inline logo size to shrink it on desktop */
-.hero-content img { height: 250px !important; }
+.hero-content img { 
+    height: 250px !important; 
+    margin: 0 auto 0 auto !important;
+    display: block; 
+}
 
 /* Scaled down heading and text */
 .interactive-hero h1 { font-size: 3.5rem; margin-bottom: 0.25rem; letter-spacing: -1px; text-shadow: 0 4px 20px rgba(0,0,0,0.5); }
@@ -336,8 +340,15 @@ body[data-page="home"] main { padding-top: 1.5rem; padding-bottom: 2rem; }
     /* 3. General Mobile Spacing & Layout */
     main { padding: 2rem 1rem; }
     .hero { padding: 4rem 1.5rem; margin-bottom: 2.5rem; border-radius: 8px; }
-    .hero h1, .interactive-hero h1 { font-size: 2.2rem; line-height: 1.2; }
-    .hero p { font-size: 1rem; margin-bottom: 2rem; }
+    
+    /* Increased the Heading size for mobile */
+    .hero h1, .interactive-hero h1 { font-size: 2.8rem; line-height: 1.1; }
+    
+    /* Decreased the Paragraph size for mobile */
+    .hero p, .interactive-hero p { font-size: 0.85rem; margin-bottom: 1.5rem; }
+    
+    /* Scale the logo down slightly just for phones */
+    .hero-content img { height: 200px !important; }
     
     .btn { display: block; width: 100%; margin-bottom: 1rem; padding: 1rem; text-align: center; }
     .btn-outline { margin-left: 0; margin-top: 0.5rem; }
