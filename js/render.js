@@ -260,19 +260,31 @@ function renderContact(data) {
 
 function renderRegistration() {
     app.innerHTML = `
-        <section class="text-center">
-            <h2>Registrations Opening Soon</h2>
-            <form id="registrationForm" class="card mt-4" style="max-width: 500px; margin: auto; text-align: left;">
-                <div class="form-group"><label>Full Name</label><input type="text" required></div>
-                <div class="form-group"><label>Email</label><input type="email" required></div>
-                <div class="form-group"><label>Phone Number</label><input type="tel" required></div>
-                <div class="form-group"><label>College/Institution</label><input type="text" required></div>
-                <button type="submit" class="btn mt-2">Submit</button>
-                <div id="formMessage" style="display:none; color: var(--accent-red); margin-top: 1rem; font-weight: bold;"></div>
-            </form>
+        <section class="hero" style="padding: 4rem 2rem; margin-bottom: 3rem;">
+            <h1 style="font-size: 3.5rem; color: var(--accent-red);">Registration</h1>
+            <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-family: var(--font-body);">Secure your spot at the BITS Pilani Youth Parliament.</p>
+        </section>
+
+        <section class="text-center" style="margin-bottom: 5rem;">
+            <div class="card" style="max-width: 800px; margin: auto; padding: 1rem; height: 850px; display: flex; flex-direction: column;">
+                
+                <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSdGfCQKx8O18wOBtNj7QqTPNT_cF-ix7IVqcL1eUEFkslRKeg/viewform?embedded=true" 
+                    width="100%" 
+                    height="100%" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0"
+                    style="border-radius: 4px; background: transparent;"
+                >
+                    <div class="loader" style="margin: auto;">Loading form...</div>
+                </iframe>
+                
+            </div>
         </section>
     `;
-    if(window.initRegForm) window.initRegForm();
+    
+    // We no longer need window.initRegForm() since Google handles the submission!
 }
 
 function renderCommittees(data) {
