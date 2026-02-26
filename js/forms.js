@@ -57,7 +57,14 @@ window.initContactForm = function() {
                     body: JSON.stringify(payload)
                 });
 
-                const result = await response.json();
+                // Handle empty or non-JSON responses
+                const text = await response.text();
+                let result;
+                try {
+                    result = text ? JSON.parse(text) : {};
+                } catch (e) {
+                    throw new Error('Server error: ' + (text || 'No response'));
+                }
 
                 if (!response.ok) {
                     throw new Error(result.error || result.details?.join(', ') || 'Failed to send');

@@ -16,28 +16,28 @@ module.exports = async (req, res) => {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // Check environment variables first
-  if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
-    console.error('Missing SMTP_USER or SMTP_PASS environment variables');
-    return res.status(500).json({ error: 'Server configuration error' });
-  }
-
-  const { user_name, user_email, subject, message } = req.body || {};
-
-  // Validation
-  if (!user_name || !user_email || !subject || !message) {
-    return res.status(400).json({ error: 'All fields are required' });
-  }
-  if (message.length < 10) {
-    return res.status(400).json({ error: 'Message must be at least 10 characters' });
-  }
-
-  // Recipient emails
-  const recipients = process.env.CONTACT_EMAILS 
-    ? process.env.CONTACT_EMAILS.split(',') 
-    : ["secgenbppc@gmail.com", "f20240032@pilani.bits-pilani.ac.in"];
-
   try {
+    // Check environment variables first
+    if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+      console.error('Missing SMTP_USER or SMTP_PASS environment variables');
+      return res.status(500).json({ error: 'Server configuration error' });
+    }
+
+    const { user_name, user_email, subject, message } = req.body || {};
+
+    // Validation
+    if (!user_name || !user_email || !subject || !message) {
+      return res.status(400).json({ error: 'All fields are required' });
+    }
+    if (message.length < 10) {
+      return res.status(400).json({ error: 'Message must be at least 10 characters' });
+    }
+
+    // Recipient emails
+    const recipients = process.env.CONTACT_EMAILS 
+      ? process.env.CONTACT_EMAILS.split(',') 
+      : ["bitsaccord@gmail.com", "accord.bitspilani@gmail.com"];
+
     // Create transporter inside the function for serverless
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST || 'smtp.gmail.com',
