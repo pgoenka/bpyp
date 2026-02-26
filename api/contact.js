@@ -35,7 +35,7 @@ module.exports = async (req, res) => {
   // Recipient emails
   const recipients = process.env.CONTACT_EMAILS 
     ? process.env.CONTACT_EMAILS.split(',') 
-    : ['murarkanaman@gmail.com', 'f20241074@pilani.bits-pilani.ac.in'];
+    : ["secgenbppc@gmail.com", "f20240032@pilani.bits-pilani.ac.in"];
 
   try {
     // Create transporter inside the function for serverless
