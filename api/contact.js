@@ -36,7 +36,7 @@ module.exports = async (req, res) => {
     // Recipient emails
     const recipients = process.env.CONTACT_EMAILS 
       ? process.env.CONTACT_EMAILS.split(',') 
-      : ["bitsaccord@gmail.com", "accord.bitspilani@gmail.com"];
+      : ["accordbits@gmail.com", "accord.bitspilani@gmail.com"];
 
     // Create transporter inside the function for serverless
     const transporter = nodemailer.createTransport({
