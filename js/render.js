@@ -234,7 +234,7 @@ function renderContact(data) {
                 <form id="contactForm">
                     <div class="form-group">
                         <label>Your Name</label>
-                        <input type="text" name="user_name" placeholder="John Doe" required>
+                        <input type="text" name="user_name" placeholder="John Doe" required minlength="2" maxlength="100">
                     </div>
                     <div class="form-group">
                         <label>Your Email</label>
@@ -242,11 +242,11 @@ function renderContact(data) {
                     </div>
                     <div class="form-group">
                         <label>Subject</label>
-                        <input type="text" name="subject" placeholder="How can we help?" required>
+                        <input type="text" name="subject" placeholder="How can we help?" required minlength="3" maxlength="200">
                     </div>
                     <div class="form-group">
                         <label>Message</label>
-                        <textarea rows="5" name="message" placeholder="Write your message here..." required></textarea>
+                        <textarea rows="5" name="message" placeholder="Write your message here..." required minlength="10" maxlength="5000"></textarea>
                     </div>
                     <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">Send Message</button>
                 </form>
