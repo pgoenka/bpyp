@@ -12,5 +12,7 @@
         { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
       ]
     }
-  ]
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
 }
