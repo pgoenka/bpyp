@@ -11,8 +11,8 @@ window.initRegForm = function() {
     }
 };
 
-// Backend API URL - update this for production
-const API_BASE_URL = 'http://localhost:3001';
+// Backend API URL - empty string uses relative paths (works on Vercel)
+const API_BASE_URL = '';
 
 window.initContactForm = function() {
     const form = document.getElementById('contactForm');
