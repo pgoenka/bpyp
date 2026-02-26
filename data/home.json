@@ -1,8 +1,8 @@
 {
   "hero": {
     "eventName": "BITS Pilani Youth Parliament",
-    "tagline": "Debate. Negotiate. Lead.",
-    "dates": "October 24 - 26, 2026",
+    "tagline": "संविधान | संवाद | समाधान",
+    "dates": "Aril 11 - 12, 2026",
     "primaryCta": { "text": "Register", "link": "registration.html" },
     "secondaryCta": { "text": "Explore Committees", "link": "committees.html" }
   },
@@ -20,8 +20,8 @@
     { "title": "Networking", "desc": "Connect with peers across the nation." }
   ],
   "timeline": [
-    { "event": "Registration Opens", "date": "September 1, 2026" },
-    { "event": "Committee Reveal", "date": "September 15, 2026" },
-    { "event": "Event Dates", "date": "October 24-26, 2026" }
+    { "event": "Registration Opens", "date": "March 1, 2026" },
+    { "event": "Committee Allotment", "date": "Aril 5, 2026" },
+    { "event": "Event Dates", "date": "April 11-12, 2026" }
   ]
 }
