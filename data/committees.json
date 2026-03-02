@@ -4,7 +4,7 @@
       "id": "ls75",
       "name": "Lok Sabha (LS.75)",
       "agenda": "Legislative, Judicial, and Political Reckoning of the Internal Emergency (1975–77): Accountability, Constitutional Restoration, and the Stability of Post-Emergency Governance.",
-      "description": "To be added.",
+      "description": "June 24, 1975.\nA court ruling shakes the Prime Minister’s authority. Political legitimacy stands questioned. Within hours, whispers of extraordinary measures grow louder.\n\nShould executive power be defended at all costs? Or must constitutional morality prevail over political survival?\n\nAs Parliament stands on the brink of an unprecedented decision, this committee will confront the fragile balance between authority, judicial oversight, and the temptation of emergency powers.\n\nHistory will not remember hesitation, only the choices made.",
       "chairpersons": [
         "To be added"
       ],
@@ -14,7 +14,7 @@
       "id": "aippm",
       "name": "All India Political Parties Meet (AIPPM)",
       "agenda": "Deliberation on the Electoral Bonds Scheme and the Use of Central Investigative Agencies in Political Competition: Transparency, Coercion, and Democratic Fairness.",
-      "description": "To be added.",
+      "description": "Democracy thrives on competition.\nBut what happens when the rules of competition are contested?\n\nOpaque funding channels. Selective investigations. Allegations of coercion. Questions of transparency.\n\nAre electoral bonds a reform or a veil? Are investigative agencies instruments of accountability? Or are these tools of leverage?\n\nIn this chamber, parties must negotiate not just policy, but trust itself.",
       "chairpersons": [
         "To be added"
       ],
@@ -24,7 +24,7 @@
       "id": "unsc",
       "name": "United Nations Security Council (UNSC)",
       "agenda": "Responding to the Expansion of Armed Extremist Activity in the Sahel Region: State Collapse, Foreign Military Presence, and Civilian Protection.",
-      "description": "To be added.",
+      "description": "Borders blur. Militias expand. Foreign powers intervene. Civilians flee.\n\nAcross the Sahel, fragile states struggle under the weight of insurgency, climate stress, and geopolitical rivalry. As extremist networks consolidate power, international actors debate intervention, sovereignty, and responsibility.\n\nIs military presence stabilising, or escalating?\nCan humanitarian protection coexist with strategic interests?\n\nThe Security Council must decide whether it can contain collapse before it spreads.",
       "chairpersons": [
         "To be added"
       ],
@@ -34,7 +34,7 @@
       "id": "cbfc",
       "name": "Central Board of Film Certification (CBFC)",
       "agenda": "Regulation of Politically Polarising Cinema in India: Certification Disputes and State Responses to The Kerala Story, The Kashmir Files, Article 370, and 72 Hoorain.",
-      "description": "To be added.",
+      "description": "A film releases. Protests erupt. Courts intervene. States respond.\n\nCinema has become more than storytelling; it is memory, identity, and politics projected on a national screen.\nShould the state regulate narratives that inflame public sentiment? Or must artistic freedom remain inviolable, even when uncomfortable?\n\nThis committee sits at the uneasy intersection of free expression and public order, where every certification decision carries political weight.",
       "chairpersons": [
         "To be added"
       ],
@@ -44,7 +44,7 @@
       "id": "unga",
       "name": "United Nations General Assembly (UNGA)",
       "agenda": "Failure of Multilateral Institutions in Preventing Mass Civilian Casualties in Urban Warfare; Deliberation on the Use of Economic Sanctions as Instruments of Warfare, with Reference to Sanctions on Russia, Iran, and Venezuela and Their Humanitarian Impact.",
-      "description": "To be added.",
+      "description": "Sanctions promise accountability without bullets.\nBut they rarely remain bloodless.\n\nAs nations deploy economic restrictions against Russia, Iran, and Venezuela, global markets shift and civilian populations absorb the shock.\n\nAre sanctions legitimate tools of pressure; or collective punishment under another name?\n\nThis Assembly must confront the ethical and humanitarian cost of economic warfare.",
       "chairpersons": [
         "To be added"
       ],
@@ -54,11 +54,21 @@
       "id": "ipl",
       "name": "Indian Premier League (IPL)",
       "agenda": "The Classic Auction.",
-      "description": "To be added.",
+      "description": "Beyond sport lies strategy.\n\nFranchises balance budgets, public expectations, and tactical depth. Every bid alters the season before it begins. Alliances form, rivalries intensify, and calculated risks define champions.\n\nIn this high-stakes simulation, decision-making is immediate and unforgiving, where economics meets ambition on the auction floor.",
       "chairpersons": [
         "To be added"
       ],
       "image": "assets/images/committees/ipl.jpg"
+    },
+    {
+      "id": "ip",
+      "name": "International Press (IP)",
+      "agenda": "Reporting, Interviews, and Editorial Judgement.",
+      "description": "Power operates in rooms.\nPerception operates everywhere else.\n\nThe International Press observes, investigates, and narrates the proceedings across committees. Through reporting, interviews, and editorial judgement, it shapes public understanding of institutional choices.\n\nIn politics, influence does not belong only to decision-makers, it belongs to those who tell the story.",
+      "chairpersons": [
+        "To be added"
+      ],
+      "image": "assets/images/committees/ip.jpg"
     }
   ],
   "online": [
@@ -66,7 +76,7 @@
       "id": "uncsw",
       "name": "United Nations Commission on the Status of Women (UNCSW)",
       "agenda": "Deliberation on Sexual Violence as a Weapon of War, with Reference to Investigations in Ukraine and Sudan.",
-      "description": "To be added.",
+      "description": "In conflict zones, violence extends beyond battlefields.\n\nFrom Ukraine to Sudan, allegations of systematic sexual violence raise urgent questions of accountability and enforcement. When bodies become battlegrounds, international law is tested in its most fragile form.\n\nCan justice be pursued amidst active conflict?\nAnd who ensures enforcement when states fail?\n\nThis committee confronts one of war’s most devastating realities.",
       "chairpersons": [
         "To be added"
       ],
@@ -76,7 +86,7 @@
       "id": "ipbt",
       "name": "Indo-Pakistan Bilateral Talks (IPBT)",
       "agenda": "Lock Date: 27 February 2019 — Following cross-border air operations, aerial engagements, and the capture of an Indian Air Force pilot.",
-      "description": "To be added.",
+      "description": "Lock Date: 27 February 2019\n\nAerial engagements. Captured pilots. Escalating rhetoric.\n\nFollowing cross-border operations and diplomatic strain, two nuclear-armed neighbours stand at a precarious threshold.\nWill dialogue de-escalate tension, or harden positions further?\n\nIn this bilateral simulation, restraint may be as consequential as retaliation.",
       "chairpersons": [
         "To be added"
       ],
@@ -86,7 +96,7 @@
       "id": "hunsc",
       "name": "Historic United Nations Security Council (HUNSC)",
       "agenda": "1971 Bangladesh War — Operation Searchlight, Refugee Crisis, Mukti Bahini Insurgency, Indo-Soviet Treaty, Escalation, Pre-emptive Airstrikes, Operation Poseidon, and the Surrender in Dhaka.",
-      "description": "To be added.",
+      "description": "Humanitarian catastrophe unfolds. Sovereignty is contested. Superpowers maneuver.\n\nAs the Bangladesh Liberation War intensifies, the Security Council grapples with intervention, recognition, and the limits of international law.\n\nIn a continuous crisis setting, decisions will evolve in real time, as diplomacy struggles to keep pace with war.",
       "chairpersons": [
         "To be added"
       ],
@@ -96,7 +106,7 @@
       "id": "ls-dpdp",
       "name": "Lok Sabha",
       "agenda": "Scrutiny of Executive Exemptions and State Surveillance Powers Under the Digital Personal Data Protection Act, 2023.",
-      "description": "To be added.",
+      "description": "Data defines the modern state.\n\nThe Act promises protection, yet grants executive exemptions in the name of security and governance. Where does privacy end and surveillance begin?\n\nParliament must determine how far state authority should extend into digital lives.\n\nThis is not a debate about technology. It is a debate about power.",
       "chairpersons": [
         "To be added"
       ],
@@ -106,7 +116,7 @@
       "id": "brics",
       "name": "BRICS Summit",
       "agenda": "De-Dollarisation.",
-      "description": "To be added.",
+      "description": "Currency is more than commerce, it is influence.\n\nAs BRICS nations consider reducing reliance on the U.S. dollar, questions of financial sovereignty, systemic reform, and global stability emerge.\n\nIs de-dollarisation a strategic necessity, or a destabilising gamble?\n\nThis summit will test the future architecture of global finance.",
       "chairpersons": [
         "To be added"
       ],
@@ -116,7 +126,7 @@
       "id": "secret",
       "name": "Secret Committee",
       "agenda": "TBA.",
-      "description": "To be added.",
+      "description": "Information is limited.\nClarity is scarce.\nDecisions will be made with incomplete knowledge.\n\nParticipants enter without certainty, and must navigate ambiguity, intelligence leaks, and shifting realities.\n\nThe less you know, the more it matters how you think.",
       "chairpersons": [
         "To be added"
       ],

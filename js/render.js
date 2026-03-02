@@ -422,7 +422,7 @@ function renderCommitteeDetails(data) {
                         </p>
 
                         <h3 style="color: var(--accent-red); margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px;">Description</h3>
-                        <p style="font-size: 1rem; line-height: 1.6; color: var(--text-muted);">
+                        <p style="font-size: 1rem; line-height: 1.6; color: var(--text-muted); white-space: pre-wrap;">
                             ${sanitize(committee.description || 'To be added.')}
                         </p>
                     </div>

@@ -2,7 +2,7 @@
   "hero": {
     "eventName": "BITS Pilani Youth Parliament",
     "tagline": "संविधान | संवाद | समाधान",
-    "dates": "Aril 11 - 12, 2026",
+    "dates": "April 11 - 12, 2026",
     "primaryCta": { "text": "Register", "link": "registration.html" },
     "secondaryCta": { "text": "Explore Committees", "link": "committees.html" }
   },
