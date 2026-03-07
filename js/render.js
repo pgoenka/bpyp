@@ -130,50 +130,6 @@ function renderTravel(data) {
             </div>
         </section>
 
-        <section style="margin-bottom: 5rem;">
-            <h2 style="text-align: center; margin-bottom: 2rem;">Train Schedules</h2>
-            
-            <h3 style="color: var(--text-primary); margin-bottom: 1rem;">Delhi &rarr; Loharu (Arrivals)</h3>
-            <div class="table-wrapper">
-                <table class="styled-table">
-                    <thead>
-                        <tr><th>Train Name / No.</th><th>From</th><th>Departure</th><th>To</th><th>Arrival</th></tr>
-                    </thead>
-                    <tbody>
-                        ${data.trainsOutbound.map(t => `
-                            <tr>
-                                <td style="font-weight: 600;">${sanitize(t.train)}</td>
-                                <td>${sanitize(t.from)}</td>
-                                <td style="color: var(--accent-red);">${sanitize(t.departure)}</td>
-                                <td>${sanitize(t.to)}</td>
-                                <td>${sanitize(t.arrival)}</td>
-                            </tr>
-                        `).join('')}
-                    </tbody>
-                </table>
-            </div>
-
-            <h3 style="color: var(--text-primary); margin-top: 3rem; margin-bottom: 1rem;">Loharu &rarr; Delhi (Departures)</h3>
-            <div class="table-wrapper">
-                <table class="styled-table">
-                    <thead>
-                        <tr><th>Train Name / No.</th><th>From</th><th>Departure</th><th>To</th><th>Arrival</th></tr>
-                    </thead>
-                    <tbody>
-                        ${data.trainsInbound.map(t => `
-                            <tr>
-                                <td style="font-weight: 600;">${sanitize(t.train)}</td>
-                                <td>${sanitize(t.from)}</td>
-                                <td style="color: var(--accent-red);">${sanitize(t.departure)}</td>
-                                <td>${sanitize(t.to)}</td>
-                                <td>${sanitize(t.arrival)}</td>
-                            </tr>
-                        `).join('')}
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
         <section style="margin-bottom: 4rem;">
             <h2 style="text-align: center; margin-bottom: 2rem;">Travel Tips</h2>
             <div class="grid">
