@@ -269,7 +269,7 @@ function renderRegistration() {
             <div class="card" style="max-width: 800px; margin: auto; padding: 1rem; height: 850px; display: flex; flex-direction: column;">
                 
                 <iframe
-                    src="https://docs.google.com/forms/d/e/1FAIpQLSdGfCQKx8O18wOBtNj7QqTPNT_cF-ix7IVqcL1eUEFkslRKeg/viewform?embedded=true" 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSf1xbtVFIHUsLIVb0AnhbO_4AET8P-5TdmHCL-F09NFLExAiQ/viewform?embedded=true" 
                     width="100%" 
                     height="100%" 
                     frameborder="0" 
