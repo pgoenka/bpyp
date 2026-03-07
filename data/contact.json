@@ -1,9 +1,9 @@
 {
   "phones": [
-    { "role": "Sec-Gen", "number": "TBD" },
-    { "role": "OC Lead", "number": "TBD" }
+    { "role": "Secretary General, BPYP", "number": "8147015155" },
+    { "role": "President, Accord", "number": "9437638767" }
   ],
   "emails": ["accordbits@gmail.com", "accord.bitspilani@gmail.com"],
-  "social": { "instagram": "https://www.instagram.com/bitsmunpilani/" },
+  "social": { "instagram": "https://www.instagram.com/bpyp.pilani/" },
   "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14144.170242200384!2d75.5779085!3d28.365116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39131964f41fa5cd%3A0x9a4a159f8c6d1d4f!2sBITS%20Pilani!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
 }
